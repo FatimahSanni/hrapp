@@ -1,0 +1,73 @@
+<%= form_for(@appraisal) do |f| %>
+  <% if @appraisal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appraisal.errors.count, "error") %> prohibited this appraisal from being saved:</h2>
+
+      <ul>
+      <% @appraisal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :staff_id %>
+    <%= f.text_field :staff_id %>
+  </div>
+  <div class="form-group">
+    <%= f.label :from %>
+    <%= f.date_field :from %>
+  </div>
+  <div class="form-group">
+    <%= f.label :to %>
+    <%= f.date_field :to %>
+  </div>
+  <div class="form-group">
+    <%= f.label :appraisal_type %>
+    <%= f.text_field :appraisal_type %>
+  </div>
+  <div class="form-group">
+    <%= f.label :job_knowledge %>
+    <%= f.number_field :job_knowledge %>
+  </div>
+  <div class="form-group">
+    <%= f.label :quality_of_work %>
+    <%= f.number_field :quality_of_work %>
+  </div>
+  <div class="form-group">
+    <%= f.label :productivity %>
+    <%= f.number_field :productivity %>
+  </div>
+  <div class="form-group">
+    <%= f.label :dependability %>
+    <%= f.number_field :dependability %>
+  </div>
+  <div class="form-group">
+    <%= f.label :attendance %>
+    <%= f.number_field :attendance %>
+  </div>
+  <div class="form-group">
+    <%= f.label :relation_with_others %>
+    <%= f.number_field :relation_with_others %>
+  </div>
+  <div class="form-group">
+    <%= f.label :commitment_with_safety %>
+    <%= f.number_field :commitment_with_safety %>
+  </div>
+  <div class="form-group">
+    <%= f.label :supervisory_ability %>
+    <%= f.number_field :supervisory_ability %>
+  </div>
+  <div class="form-group">
+    <%= f.label :overall %>
+    <%= f.number_field :overall %>
+  </div>
+  <div class="form-group">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+<% end %>

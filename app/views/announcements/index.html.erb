@@ -1,0 +1,32 @@
+<h1>Listing Announcements</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Information</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @announcements.each do |announcement| %>
+      <tr>
+        <td><%= announcement.topic %></td>
+        <td><%= announcement.information %></td>
+        <% if announcement.comments.exists? %>
+          <td><%= link_to announcement.comments.count, announcement %></td>
+          <% else %>
+         <td><%= link_to 'No Comments yet. Add yours', new_announcement_comment_path(announcement) %></td>
+        <% end %>
+        <td><%= link_to 'Show', announcement %></td>
+        <td><%= link_to 'Edit', edit_announcement_path(announcement) %></td>
+        <td><%= link_to 'Destroy', announcement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Announcement', new_announcement_path %>

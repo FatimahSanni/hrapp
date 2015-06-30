@@ -1,0 +1,32 @@
+<%= form_for(@staff, html: {multipart: true}) do |f| %>
+<% if @staff.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@staff.errors.count, "error") %> prohibited this staff from being saved:</h2>
+
+  <ul>
+    <% @staff.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<!-- Personal Details -->
+<%= render  'personal', f: f %>
+<!-- Contact Details-->
+<%= render 'contact', f: f %>
+<!-- Emergency Contact -->
+<%= render 'emergency', f: f %>
+<!-- Dependents -->
+<%= render 'dependent', f: f %>
+<!-- Job -->
+<%= render 'job', f: f %>
+<!-- Salary -->
+<!-- Qualifications -->
+<!-- Reporting line -->
+
+
+<div class="form-group">
+  <%= f.submit class: "btn btn-primary" %>
+</div>
+<% end %>

@@ -1,0 +1,29 @@
+<%= form_for(@disciplinary_case) do |f| %>
+  <% if @disciplinary_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@disciplinary_case.errors.count, "error") %> prohibited this disciplinary_case from being saved:</h2>
+
+      <ul>
+      <% @disciplinary_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :staff_id %>
+    <%= f.collection_select :staff_id, Staff.all, :id, :name, {include_blank: true}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :reason %>
+    <%= f.text_field :reason, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :report %>
+    <%= f.text_area :report, rows: 15, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

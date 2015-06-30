@@ -1,0 +1,21 @@
+<%= form_for(@disciplinary_action) do |f| %>
+  <% if @disciplinary_action.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@disciplinary_action.errors.count, "error") %> prohibited this disciplinary_action from being saved:</h2>
+
+      <ul>
+      <% @disciplinary_action.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+<% end %>

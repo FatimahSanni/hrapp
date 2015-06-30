@@ -1,0 +1,28 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingEm">
+      <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEm" aria-expanded="false" aria-controls="collapseEm">Emergency Contact<span class="pull-right">+</span></a></h4>
+    </div>
+    <div id="collapseEm" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEm">
+      <div class="panel-body">
+
+        <div class="form-group">
+          <%= f.label :emergency_name, 'Name' %>
+          <%= f.text_field :emergency_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :relationship %>
+          <%= f.text_field :relationship, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :emergency_phone, 'Phone' %>
+          <%= f.text_field :emergency_phone, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :emergency_address, 'Address' %>
+          <%= f.text_field :emergency_address, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

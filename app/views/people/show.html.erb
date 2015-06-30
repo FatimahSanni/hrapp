@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @person.position %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @person.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @person.email %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @person.comment %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= link_to @person.resume_file_name, @person.resume.url %>(<%= number_to_human_size(@person.resume_file_size) %>)
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>

@@ -1,0 +1,29 @@
+<h1>Listing Disciplinary Cases</h1>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Staff</th>
+      <th>Reason</th>
+      <th>Date of Report</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @disciplinary_cases.each do |disciplinary_case| %>
+      <tr>
+        <td><%= disciplinary_case.staff.name %></td>
+        <td><%= link_to disciplinary_case.reason, disciplinary_case %></td>
+        <td><%= disciplinary_case.created_at.strftime("%d/%m/%y %I:%M %p") %></td>
+        <td><%= link_to 'Show', disciplinary_case %></td>
+        <td><%= link_to 'Edit', edit_disciplinary_case_path(disciplinary_case) %></td>
+        <td><%= link_to 'Destroy', disciplinary_case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Disciplinary case', new_disciplinary_case_path %>

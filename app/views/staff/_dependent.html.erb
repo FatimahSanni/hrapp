@@ -1,0 +1,17 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingDe">
+      <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseDe" aria-expanded="false" aria-controls="collapseDe">Dependents<span class="pull-right">+</span></a></h4>
+    </div>
+    <div id="collapseDe" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDe">
+      <div class="panel-body">
+        <%= f.fields_for :dependents do |d| %>
+        <%=  render 'dependent_fields', f: d %>
+        <% end %>
+        <div class="form-group">
+          <%= link_to_add_association 'Add Dependent', f, :dependents %>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>

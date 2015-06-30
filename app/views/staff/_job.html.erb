@@ -1,0 +1,17 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingJb">
+      <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseJb" aria-expanded="false" aria-controls="collapseJb">Job<span class="pull-right">+</span></a></h4>
+    </div>
+    <div id="collapseJb" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJb">
+      <div class="panel-body">
+        <%= f.fields_for :jobs do |d| %>
+        <%= render 'job_fields', f: d %>
+        <% end %>
+        <div class="form-group">
+          <%= link_to_add_association 'Add Job', f, :jobs %>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>

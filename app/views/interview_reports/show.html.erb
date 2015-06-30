@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @interview_report.name %>
+</p>
+
+<p>
+  <strong>Education:</strong>
+  <%= @interview_report.education %>
+</p>
+
+<p>
+  <strong>Work:</strong>
+  <%= @interview_report.work %>
+</p>
+
+<p>
+  <strong>Job knowledge:</strong>
+  <%= @interview_report.job_knowledge %>
+</p>
+
+<p>
+  <strong>Communication:</strong>
+  <%= @interview_report.communication %>
+</p>
+
+<p>
+  <strong>Initiative:</strong>
+  <%= @interview_report.initiative %>
+</p>
+
+<p>
+  <strong>Enthusiasm:</strong>
+  <%= @interview_report.enthusiasm %>
+</p>
+
+<p>
+  <strong>Company knowledge:</strong>
+  <%= @interview_report.company_knowledge %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @interview_report.note %>
+</p>
+
+<%= link_to 'Edit', edit_interview_report_path(@interview_report) %> |
+<%= link_to 'Back', interview_reports_path %>

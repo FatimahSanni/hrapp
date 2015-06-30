@@ -1,0 +1,53 @@
+<%= form_for(@interview_report) do |f| %>
+  <% if @interview_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interview_report.errors.count, "error") %> prohibited this interview_report from being saved:</h2>
+
+      <ul>
+      <% @interview_report.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :education %><br>
+    <%= f.number_field :education %>
+  </div>
+  <div class="field">
+    <%= f.label :work %><br>
+    <%= f.number_field :work %>
+  </div>
+  <div class="field">
+    <%= f.label :job_knowledge %><br>
+    <%= f.number_field :job_knowledge %>
+  </div>
+  <div class="field">
+    <%= f.label :communication %><br>
+    <%= f.number_field :communication %>
+  </div>
+  <div class="field">
+    <%= f.label :initiative %><br>
+    <%= f.number_field :initiative %>
+  </div>
+  <div class="field">
+    <%= f.label :enthusiasm %><br>
+    <%= f.number_field :enthusiasm %>
+  </div>
+  <div class="field">
+    <%= f.label :company_knowledge %><br>
+    <%= f.number_field :company_knowledge %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_area :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

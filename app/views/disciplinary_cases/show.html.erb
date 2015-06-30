@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Staff:</strong>
+  <%= @disciplinary_case.staff.name %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @disciplinary_case.reason %>
+</p>
+
+<p>
+  <strong>Report:</strong>
+  <%= simple_format(@disciplinary_case.report) %>
+</p>
+
+<%= link_to 'Edit', edit_disciplinary_case_path(@disciplinary_case) %> |
+<%= link_to 'Back', disciplinary_cases_path %>

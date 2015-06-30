@@ -1,0 +1,44 @@
+
+<br>
+<br>
+<span class="pull-right"><%= link_to 'New Staff', new_staff_path, class: "btn btn-primary" %></span>
+<h1>Listing Staff</h1>
+<hr>
+<%= paginate @staff %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    All Staff
+  </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Dob</th>
+      <th>Gender</th>
+      <th>Add Date</th>
+      <th>Emergency name</th>
+      <th>Emergency address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @staff.each do |staff| %>
+      <tr>
+        <td><%= staff.name %></td>
+        <td><%= staff.dob %></td>
+        <td><%= staff.gender %></td>
+        <td><%= l staff.created_at, format: :default %></td>
+        <td><%= staff.emergency_name %></td>
+        <td><%= staff.emergency_address %></td>
+        <td><%= link_to 'Show', staff %></td>
+        <td><%= link_to 'Edit', edit_staff_path(staff) %></td>
+        <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+
+

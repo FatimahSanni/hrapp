@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Interview Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Education</th>
+      <th>Work</th>
+      <th>Job knowledge</th>
+      <th>Communication</th>
+      <th>Initiative</th>
+      <th>Enthusiasm</th>
+      <th>Company knowledge</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interview_reports.each do |interview_report| %>
+      <tr>
+        <td><%= interview_report.name %></td>
+        <td><%= interview_report.education %></td>
+        <td><%= interview_report.work %></td>
+        <td><%= interview_report.job_knowledge %></td>
+        <td><%= interview_report.communication %></td>
+        <td><%= interview_report.initiative %></td>
+        <td><%= interview_report.enthusiasm %></td>
+        <td><%= interview_report.company_knowledge %></td>
+        <td><%= interview_report.note %></td>
+        <td><%= link_to 'Show', interview_report %></td>
+        <td><%= link_to 'Edit', edit_interview_report_path(interview_report) %></td>
+        <td><%= link_to 'Destroy', interview_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interview report', new_interview_report_path %>

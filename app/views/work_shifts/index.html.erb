@@ -1,0 +1,29 @@
+<h1>Listing Work Shifts</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>From</th>
+      <th>To</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_shifts.each do |work_shift| %>
+      <tr>
+        <td><%= work_shift.name %></td>
+        <td><%= work_shift.from.strftime("%I:%M %p") %></td>
+        <td><%= work_shift.to.strftime("%I:%M %p") %></td>
+        <td><%= link_to 'Show', work_shift %></td>
+        <td><%= link_to 'Edit', edit_work_shift_path(work_shift) %></td>
+        <td><%= link_to 'Destroy', work_shift, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work shift', new_work_shift_path %>
