@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627122400) do
+ActiveRecord::Schema.define(version: 20150701105201) do
 
   create_table "actions", force: :cascade do |t|
     t.string   "name"
@@ -121,6 +121,23 @@ ActiveRecord::Schema.define(version: 20150627122400) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "interview_candidates", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "education"
+    t.integer  "work"
+    t.integer  "job"
+    t.integer  "communication"
+    t.integer  "initiative"
+    t.integer  "enthusiasm"
+    t.integer  "company"
+    t.string   "remark"
+    t.integer  "interview_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "interview_candidates", ["interview_id"], name: "index_interview_candidates_on_interview_id"
+
   create_table "interview_reports", force: :cascade do |t|
     t.string   "name"
     t.integer  "education"
@@ -133,6 +150,14 @@ ActiveRecord::Schema.define(version: 20150627122400) do
     t.text     "note"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.string   "interviewer"
+    t.string   "position"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "impression"
   end
 
   create_table "job_categories", force: :cascade do |t|

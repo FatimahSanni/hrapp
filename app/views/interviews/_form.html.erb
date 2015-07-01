@@ -1,0 +1,54 @@
+<%= form_for(@interview) do |f| %>
+  <% if @interview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interview.errors.count, "error") %> prohibited this interview from being saved:</h2>
+
+      <ul>
+      <% @interview.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :interviewer %>
+    <%= f.text_field :interviewer, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :position %>
+    <%= f.text_field :position, class: "form-control" %>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Education</th>
+        <th>Work</th>
+        <th>Job</th>
+        <th>Communication</th>
+        <th>Initiative</th>
+        <th>Enthusiasm</th>
+        <th>Company</th>
+        <th>Remark</th>
+        <th colspan=1></th>
+      </tr>
+    </thead>
+    <tbody id="candidates">
+      <%= f.fields_for :interview_candidates do |candidate| %>
+      <%= render 'interview_candidate_fields', f: candidate %>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="form-group">
+    <%= link_to_add_association 'Add candidates', f, :interview_candidates, 'data-association-insertion-node' => 'tbody#candidates', 'data-association-insertion-method' => 'append', class: "btn btn-primary" %>
+  </div>
+  <br><br>
+  <div class="form-group">
+    <%= f.label :impression, class: "sr-only" %>
+    <%= f.text_area :impression, placeholder: "Overall Impression/Recommendations", rows: 15, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

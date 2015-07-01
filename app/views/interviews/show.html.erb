@@ -1,0 +1,51 @@
+<p>
+  <strong>Interviewer:</strong>
+  <span><%= @interview.interviewer %>
+</span>
+
+<p>
+  <strong>Position:</strong>
+  <%= @interview.position %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @interview.created_at.strftime("%d/%m/%Y") %>
+</p>
+<hr>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Education</th>
+			<th>Work Experience</th>
+			<th>Job Knowledge</th>
+			<th>Verbal Communication</th>
+			<th>Initiative</th>
+			<th>Enthusiasm</th>
+			<th>Knowledge of Company</th>
+			<th>Remark</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @interview.interview_candidates.each do |i| %>
+		<tr>
+			<td><%= i.name %></td>
+			<td><%= i.education %></td>
+			<td><%= i.work %></td>
+			<td><%= i.job %></td>
+			<td><%= i.communication %></td>
+			<td><%= i.initiative %></td>
+			<td><%= i.enthusiasm %></td>
+			<td><%= i.company %></td>
+			<td><%= simple_format(i.remark) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<p>
+	<strong>Overall Impression/Recommendations:</strong>
+</p>
+<p><%= simple_format(@interview.impression) %></p>
+
+<%= link_to 'Edit', edit_interview_path(@interview) %> |
+<%= link_to 'Back', interviews_path %>
