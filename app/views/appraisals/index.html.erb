@@ -1,22 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Appraisals</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Staff</th>
       <th>From</th>
       <th>To</th>
       <th>Appraisal type</th>
-      <th>Job knowledge</th>
-      <th>Quality of work</th>
-      <th>Productivity</th>
-      <th>Dependability</th>
-      <th>Attendance</th>
-      <th>Relation with others</th>
-      <th>Commitment with safety</th>
-      <th>Supervisory ability</th>
       <th>Overall</th>
       <th>Comment</th>
       <th colspan="3"></th>
@@ -26,19 +16,11 @@
   <tbody>
     <% @appraisals.each do |appraisal| %>
       <tr>
-        <td><%= appraisal.staff %></td>
+        <td><%= appraisal.staff.name %></td>
         <td><%= appraisal.from %></td>
         <td><%= appraisal.to %></td>
         <td><%= appraisal.appraisal_type %></td>
-        <td><%= appraisal.job_knowledge %></td>
-        <td><%= appraisal.quality_of_work %></td>
-        <td><%= appraisal.productivity %></td>
-        <td><%= appraisal.dependability %></td>
-        <td><%= appraisal.attendance %></td>
-        <td><%= appraisal.relation_with_others %></td>
-        <td><%= appraisal.commitment_with_safety %></td>
-        <td><%= appraisal.supervisory_ability %></td>
-        <td><%= appraisal.overall %></td>
+        <td class="star-rating", data-score=<%= appraisal.overall %>></td>
         <td><%= appraisal.comment %></td>
         <td><%= link_to 'Show', appraisal %></td>
         <td><%= link_to 'Edit', edit_appraisal_path(appraisal) %></td>
@@ -50,4 +32,18 @@
 
 <br>
 
-<%= link_to 'New Appraisal', new_appraisal_path %>
+<%= link_to 'New Appraisal', new_appraisal_path, class: "btn btn-primary" %>
+<script>
+    $('.star-rating').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[job_knowledge]',
+    space: true,
+    readOnly: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
+</script>

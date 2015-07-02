@@ -22,7 +22,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Candidate</th>
         <th>Education</th>
         <th>Work</th>
         <th>Job</th>
@@ -30,7 +30,6 @@
         <th>Initiative</th>
         <th>Enthusiasm</th>
         <th>Company</th>
-        <th>Remark</th>
         <th colspan=1></th>
       </tr>
     </thead>
@@ -41,7 +40,7 @@
     </tbody>
   </table>
   <div class="form-group">
-    <%= link_to_add_association 'Add candidates', f, :interview_candidates, 'data-association-insertion-node' => 'tbody#candidates', 'data-association-insertion-method' => 'append', class: "btn btn-primary" %>
+    <%= link_to_add_association 'Add candidates', f, :interview_candidates, 'data-association-insertion-node' => 'tbody#candidates', 'data-association-insertion-method' => 'append', class: "btn btn-primary"  %>
   </div>
   <br><br>
   <div class="form-group">

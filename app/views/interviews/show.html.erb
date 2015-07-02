@@ -23,21 +23,19 @@
 			<th>Initiative</th>
 			<th>Enthusiasm</th>
 			<th>Knowledge of Company</th>
-			<th>Remark</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @interview.interview_candidates.each do |i| %>
 		<tr>
-			<td><%= i.name %></td>
-			<td><%= i.education %></td>
-			<td><%= i.work %></td>
-			<td><%= i.job %></td>
-			<td><%= i.communication %></td>
-			<td><%= i.initiative %></td>
-			<td><%= i.enthusiasm %></td>
-			<td><%= i.company %></td>
-			<td><%= simple_format(i.remark) %></td>
+			<td> <%= i.name %></td>
+			<td class="star-rating" data-score = <%= i.education %>></td>
+			<td class="star-rating" data-score = <%= i.work %>></td>
+			<td class="star-rating" data-score = <%= i.job %>></td>
+			<td class="star-rating" data-score = <%= i.communication %>></td>
+			<td class="star-rating" data-score = <%= i.initiative %>></td>
+			<td class="star-rating" data-score = <%= i.enthusiasm %>></td>
+			<td class="star-rating" data-score = <%= i.company %>></td>
 		</tr>
 		<% end %>
 	</tbody>
@@ -49,3 +47,17 @@
 
 <%= link_to 'Edit', edit_interview_path(@interview) %> |
 <%= link_to 'Back', interviews_path %>
+
+<script>
+	$('.star-rating').raty({
+		starOn: '<%= image_path('star-on.png') %>',
+		starOff: '<%= image_path('star-off.png') %>',
+		starHalf: '<%= image_path('star-half.png') %>',
+		path: '',
+		readOnly: true,
+		score: function(){
+			return $(this).attr('data-score');
+		}
+
+	});
+</script>

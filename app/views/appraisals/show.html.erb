@@ -2,7 +2,7 @@
 
 <p>
   <strong>Staff:</strong>
-  <%= @appraisal.staff %>
+  <%= @appraisal.staff.name %>
 </p>
 
 <p>
@@ -22,53 +22,67 @@
 
 <p>
   <strong>Job knowledge:</strong>
-  <%= @appraisal.job_knowledge %>
+  <span class="star-rating", data-score=<%= @appraisal.job_knowledge %>></span>
 </p>
 
 <p>
   <strong>Quality of work:</strong>
-  <%= @appraisal.quality_of_work %>
+  <span class="star-rating", data-score=<%= @appraisal.quality_of_work %>></span>
 </p>
 
 <p>
   <strong>Productivity:</strong>
-  <%= @appraisal.productivity %>
+  <span class="star-rating", data-score=<%= @appraisal.productivity %>></span>
 </p>
 
 <p>
   <strong>Dependability:</strong>
-  <%= @appraisal.dependability %>
+  <span class="star-rating", data-score=<%= @appraisal.dependability %>></span>
 </p>
 
 <p>
   <strong>Attendance:</strong>
-  <%= @appraisal.attendance %>
+  <span class="star-rating", data-score=<%= @appraisal.attendance %>></span>
 </p>
 
 <p>
   <strong>Relation with others:</strong>
-  <%= @appraisal.relation_with_others %>
+  <span class="star-rating", data-score=<%= @appraisal.relation_with_others %>></span>
 </p>
 
 <p>
   <strong>Commitment with safety:</strong>
-  <%= @appraisal.commitment_with_safety %>
+  <span class="star-rating", data-score=<%= @appraisal.commitment_with_safety %>></span>
 </p>
 
 <p>
   <strong>Supervisory ability:</strong>
-  <%= @appraisal.supervisory_ability %>
+  <span class="star-rating", data-score=<%= @appraisal.supervisory_ability %>></span>
 </p>
 
 <p>
   <strong>Overall:</strong>
-  <%= @appraisal.overall %>
+  <span class="star-rating", data-score=<%= @appraisal.overall %>></span>
 </p>
 
 <p>
   <strong>Comment:</strong>
-  <%= @appraisal.comment %>
+  <%= simple_format(@appraisal.comment) %>
 </p>
 
 <%= link_to 'Edit', edit_appraisal_path(@appraisal) %> |
 <%= link_to 'Back', appraisals_path %>
+<script>
+    $('.star-rating').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[job_knowledge]',
+    space: true,
+    readOnly: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
+</script>
