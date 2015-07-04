@@ -1,0 +1,19 @@
+<div class="form-group">
+	<%= link_to 'Apply for Leave', new_leave_path, class: "btn btn-primary pull-right" %>
+</div>
+<%= month_calendar table: {class: "table table-bordered table-hover"}, tr: {class: ""}, td: {class: "day"}, events: @leaves do |date, leaves| %>
+<%= date.day %>
+
+<% leaves.each do |leave| %>
+<div class="event">
+  <p>
+    <%= link_to leave.leave_type.name, leave %> (<%= pluralize((leave.to - leave.starts_at).to_i, "day") %>)
+  </p>
+  <p class="label label-warning">
+    <%= leave.staff.name %>
+  </p>
+</div>
+<% end %>
+<% end %>
+
+

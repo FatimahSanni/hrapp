@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @leave_type.name %>
+</p>
+
+<p>
+  <strong>Number of days:</strong>
+  <%= @leave_type.number_of_days %>
+</p>
+
+<%= link_to 'Edit', edit_leave_type_path(@leave_type) %> |
+<%= link_to 'Back', leave_types_path %>

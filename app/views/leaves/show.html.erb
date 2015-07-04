@@ -1,0 +1,29 @@
+<p>
+  <strong>Leave type:</strong>
+  <%= @leave.leave_type.name %>
+</p>
+<p><strong>Days Requested</strong>
+<%= pluralize((@leave.to - @leave.starts_at).to_i, "day") %>
+</p>
+<p>
+  <strong>Staff:</strong>
+  <%= @leave.staff.name %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @leave.starts_at %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @leave.to %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @leave.comment %>
+</p>
+
+<%= link_to 'Edit', edit_leave_path(@leave) %> |
+<%= link_to 'Back', leaves_path %>
