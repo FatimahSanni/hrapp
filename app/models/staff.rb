@@ -11,4 +11,5 @@ class Staff < ActiveRecord::Base
 	has_attached_file :avatar, styles: {medium: "200*200>", thumb: '100*100>'}
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 	paginates_per 10
+	has_many :leaves, dependent: :destroy
 end

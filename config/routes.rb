@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :leaves
+
+  resources :leave_types
+
   devise_for :users
   resources :interviews
 

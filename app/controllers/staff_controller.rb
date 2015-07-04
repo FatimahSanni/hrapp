@@ -24,7 +24,7 @@ class StaffController < ApplicationController
   # POST /staff
   # POST /staff.json
   def create
-    @staff = Staff.new(staff_params)
+    @staff = current_user.staff.new(staff_params)
 
     respond_to do |format|
       if @staff.save
@@ -62,6 +62,8 @@ class StaffController < ApplicationController
   end
 
   private
+
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_staff
       @staff = Staff.find(params[:id])

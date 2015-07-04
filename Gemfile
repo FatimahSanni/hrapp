@@ -17,6 +17,9 @@ gem 'kaminari'
 gem 'angularjs-rails'
 gem 'turbolinks'
 gem 'paperclip'
+gem 'apartment'
+gem 'simple_calendar'
+gem 'paranoia'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 

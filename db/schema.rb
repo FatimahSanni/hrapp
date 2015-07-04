@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702045124) do
+ActiveRecord::Schema.define(version: 20150703162353) do
 
   create_table "actions", force: :cascade do |t|
     t.string   "name"
@@ -184,6 +184,26 @@ ActiveRecord::Schema.define(version: 20150702045124) do
   end
 
   add_index "jobs", ["staff_id"], name: "index_jobs_on_staff_id"
+
+  create_table "leave_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "number_of_days"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "leaves", force: :cascade do |t|
+    t.integer  "leave_type_id"
+    t.integer  "staff_id"
+    t.date     "starts_at"
+    t.date     "to"
+    t.text     "comment"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "leaves", ["leave_type_id"], name: "index_leaves_on_leave_type_id"
+  add_index "leaves", ["staff_id"], name: "index_leaves_on_staff_id"
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
