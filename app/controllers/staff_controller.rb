@@ -1,5 +1,6 @@
 class StaffController < ApplicationController
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
+  before_action :profile_owner!, only: [:edit, :update, :destroy]
 
   # GET /staff
   # GET /staff.json
@@ -64,6 +65,14 @@ class StaffController < ApplicationController
   private
 
   
+
+  def profile_owner!
+    authenticate_user!
+    if @staff.user_id != current_user.id
+      redirect_to staff_index_path
+      flash[:alert] = "You do not have enough permissions to do this"
+    end
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_staff
       @staff = Staff.find(params[:id])
