@@ -12,4 +12,5 @@ class Staff < ActiveRecord::Base
 	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 	paginates_per 10
 	has_many :leaves, dependent: :destroy
+	belongs_to :user
 end

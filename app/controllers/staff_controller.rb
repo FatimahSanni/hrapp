@@ -14,7 +14,7 @@ class StaffController < ApplicationController
 
   # GET /staff/new
   def new
-    @staff = Staff.new
+    @staff = current_user.staff.build
   end
 
   # GET /staff/1/edit
@@ -24,7 +24,7 @@ class StaffController < ApplicationController
   # POST /staff
   # POST /staff.json
   def create
-    @staff = current_user.staff.new(staff_params)
+    @staff = current_user.staff.build(staff_params)
 
     respond_to do |format|
       if @staff.save

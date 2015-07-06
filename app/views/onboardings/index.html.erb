@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Onboardings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Staff</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @onboardings.each do |onboarding| %>
+      <tr>
+        <td><%= onboarding.staff %></td>
+        <td><%= link_to 'Show', onboarding %></td>
+        <td><%= link_to 'Edit', edit_onboarding_path(onboarding) %></td>
+        <td><%= link_to 'Destroy', onboarding, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Onboarding', new_onboarding_path %>

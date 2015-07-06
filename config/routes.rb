@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :onboardings
+
   resources :leaves
 
   resources :leave_types
