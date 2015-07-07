@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :company_assets
+
   resources :onboardings
 
   resources :leaves

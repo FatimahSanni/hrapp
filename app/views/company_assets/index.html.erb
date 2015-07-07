@@ -1,0 +1,27 @@
+<h1>Listing Company Assets</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Staff</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company_assets.each do |company_asset| %>
+      <tr>
+        <td><%= company_asset.name %></td>
+        <td><%= company_asset.staff.name %></td>
+        <td><%= link_to 'Show', company_asset %></td>
+        <td><%= link_to 'Edit', edit_company_asset_path(company_asset) %></td>
+        <td><%= link_to 'Destroy', company_asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company asset', new_company_asset_path %>
