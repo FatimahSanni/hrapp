@@ -18,6 +18,11 @@ gem 'angularjs-rails'
 gem 'turbolinks'
 gem 'paperclip'
 gem 'apartment'
+gem 'pundit'
+gem 'simple_form'
+gem 'forem', github: "radar/forem", branch: "rails4"
+gem 'forem-bootstrap', github: "radar/forem-bootstrap"
+gem 'forem-redcarpet', github: "radar/forem-redcarpet"
 gem 'simple_calendar', '~> 1.1.0'
 gem 'paranoia'
 gem 'jbuilder', '~> 2.0'
