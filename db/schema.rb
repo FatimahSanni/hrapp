@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707081349) do
+ActiveRecord::Schema.define(version: 20150707103717) do
 
   create_table "actions", force: :cascade do |t|
     t.string   "name"
@@ -367,6 +367,7 @@ ActiveRecord::Schema.define(version: 20150707081349) do
     t.boolean  "forem_admin",            default: false
     t.string   "forem_state",            default: "pending_review"
     t.boolean  "forem_auto_subscribe",   default: false
+    t.integer  "role_id"
   end
 
   create_table "work_shifts", force: :cascade do |t|

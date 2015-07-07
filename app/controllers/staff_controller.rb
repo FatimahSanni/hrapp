@@ -1,6 +1,6 @@
 class StaffController < ApplicationController
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
-  before_action :profile_owner!, only: [:edit, :update, :destroy]
+  # before_action :profile_owner!, only: [:edit, :update, :destroy]
 
   # GET /staff
   # GET /staff.json
@@ -16,15 +16,18 @@ class StaffController < ApplicationController
   # GET /staff/new
   def new
     @staff = current_user.staff.build
+    authorize @staff
   end
 
   # GET /staff/1/edit
   def edit
+    authorize @staff
   end
 
   # POST /staff
   # POST /staff.json
   def create
+
     @staff = current_user.staff.build(staff_params)
 
     respond_to do |format|
@@ -41,6 +44,7 @@ class StaffController < ApplicationController
   # PATCH/PUT /staff/1
   # PATCH/PUT /staff/1.json
   def update
+    authorize @staff
     respond_to do |format|
       if @staff.update(staff_params)
         format.html { redirect_to @staff, notice: 'Staff was successfully updated.' }
@@ -55,6 +59,7 @@ class StaffController < ApplicationController
   # DELETE /staff/1
   # DELETE /staff/1.json
   def destroy
+    authorize @staff
     @staff.destroy
     respond_to do |format|
       format.html { redirect_to staff_index_url, notice: 'Staff was successfully destroyed.' }
