@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
+  helper_method :leave_requests, :leave_requests_count
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized!
 
@@ -17,6 +18,14 @@ class ApplicationController < ActionController::Base
   def user_not_authorized!
   	flash[:alert] = "Only System Admins."
   	redirect_to(request.referrer || root_path)
+  end
+
+  def leave_requests_count
+    @leaves = Leave.all.count
+  end
+
+  def leave_requests
+    @leaves = Leave.all.order('created_at ASC').limit(3)
   end
 
 end

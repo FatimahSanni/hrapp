@@ -47,6 +47,20 @@ header.calendar-header{
 		font-size: 30px;
 	}
 }
+#leave.panel-danger{
+	border-color: #f00;
+	.panel-heading{
+		color: #fff;
+		background-color: #f00;
+	}
+}
+#appraisal.panel-danger{
+	border-color: #fef583;
+	.panel-heading{
+		color: #222;
+		background-color: #fef583;
+	}
+}
 /*.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
 	color:#7B0EA0;
 	background-color:#fff;

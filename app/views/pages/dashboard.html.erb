@@ -1,2 +1,34 @@
 <h1>Dashboard</h1>
 <hr>
+<div class="row">
+	<div class="col-md-4">
+		<div id="leave" class="panel panel-danger">
+			<div class="panel-heading">
+				Pending Leave Requests (<%= leave_requests.count %>)
+			</div>
+			<div class="panel-body">
+				<% leave_requests.each do |l| %>
+				<ul>
+					<li><%= l.staff.name %></li>
+				</ul>
+				
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div id="appraisal" class="panel panel-danger">
+			<div class="panel-heading">
+				Pending Appraisals (<%= leave_requests_count %>)
+			</div>
+			<div class="panel-body">
+				<% leave_requests.each do |l| %>
+				<ul>
+					<li><%= l.staff.name %></li>
+				</ul>
+				
+				<% end %>
+			</div>
+	</div>
+	<div class="col-md-4"></div>
+</div>

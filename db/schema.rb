@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707202007) do
+ActiveRecord::Schema.define(version: 20150708035730) do
 
   create_table "actions", force: :cascade do |t|
     t.string   "name"
@@ -350,6 +350,15 @@ ActiveRecord::Schema.define(version: 20150707202007) do
 
 # Could not dump table "staff" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "todo"
+    t.integer  "onboarding_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "tasks", ["onboarding_id"], name: "index_tasks_on_onboarding_id"
 
   create_table "todos", force: :cascade do |t|
     t.string   "task"

@@ -69,6 +69,6 @@ class OnboardingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def onboarding_params
-      params.require(:onboarding).permit(:staff_id)
+      params.require(:onboarding).permit(:staff_id, tasks_attributes: [:id, :todo, :_destroy])
     end
 end
