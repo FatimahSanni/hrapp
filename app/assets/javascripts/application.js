@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootsy
 //= require cocoon
 //= require forem
 //= require bootstrap-sprockets

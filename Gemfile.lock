@@ -87,10 +87,19 @@ GEM
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootsy (2.1.0)
+      carrierwave (~> 0.10)
+      mini_magick (~> 4.0)
+      remotipart (~> 1.2)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
     cancancan (1.12.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -141,6 +150,7 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.6.1)
     mimemagic (0.3.0)
+    mini_magick (4.2.7)
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.0)
@@ -210,6 +220,7 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     redcarpet (3.0.0)
+    remotipart (1.2.1)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     sanitize (2.0.6)
@@ -268,6 +279,7 @@ DEPENDENCIES
   apartment
   aws-sdk (< 2.0)
   bootstrap-sass
+  bootsy
   byebug
   cocoon
   coffee-rails (~> 4.1.0)

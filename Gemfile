@@ -18,6 +18,7 @@ gem 'angularjs-rails'
 gem 'turbolinks'
 gem 'paperclip'
 gem 'apartment'
+gem 'bootsy'
 gem 'pundit'
 gem 'simple_form'
 gem 'forem', github: "radar/forem", branch: "rails4"

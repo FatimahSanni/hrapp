@@ -13,7 +13,7 @@
     <% @announcements.each do |announcement| %>
       <tr>
         <td><%= announcement.topic %></td>
-        <td><%= announcement.information %></td>
+        <td><%= simple_format(announcement.information.truncate(110)) %></td>
         <% if announcement.comments.exists? %>
           <td><%= link_to announcement.comments.count, announcement %></td>
           <% else %>
