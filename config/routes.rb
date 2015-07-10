@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :subdomains
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :tools
 

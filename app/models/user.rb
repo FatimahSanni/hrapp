@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  # after_create :create_tenant
 	has_many :staff
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -16,4 +17,9 @@ class User < ActiveRecord::Base
   def set_default_role
   	self.role_id ||= :user
   end
+
+  private
+  # def create_tenant
+  #   Apartment::Tenant.create(subdomain)
+  # end
 end

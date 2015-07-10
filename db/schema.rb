@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708035730) do
+ActiveRecord::Schema.define(version: 20150710122654) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "actions", force: :cascade do |t|
     t.string   "name"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
 
   create_table "announcements", force: :cascade do |t|
     t.string   "topic"
-    t.string   "information"
+    t.text     "information"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -45,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "appraisals", ["staff_id"], name: "index_appraisals_on_staff_id"
+  add_index "appraisals", ["staff_id"], name: "index_appraisals_on_staff_id", using: :btree
 
   create_table "candidates", force: :cascade do |t|
     t.string   "name"
@@ -61,10 +64,9 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.integer  "announcement_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "parent_id"
   end
 
-  add_index "comments", ["announcement_id"], name: "index_comments_on_announcement_id"
+  add_index "comments", ["announcement_id"], name: "index_comments_on_announcement_id", using: :btree
 
   create_table "company_assets", force: :cascade do |t|
     t.string   "name"
@@ -73,7 +75,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "company_assets", ["staff_id"], name: "index_company_assets_on_staff_id"
+  add_index "company_assets", ["staff_id"], name: "index_company_assets_on_staff_id", using: :btree
 
   create_table "dependents", force: :cascade do |t|
     t.string   "name"
@@ -84,7 +86,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "dependents", ["staff_id"], name: "index_dependents_on_staff_id"
+  add_index "dependents", ["staff_id"], name: "index_dependents_on_staff_id", using: :btree
 
   create_table "disciplinary_actions", force: :cascade do |t|
     t.string   "name"
@@ -100,7 +102,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "disciplinary_cases", ["staff_id"], name: "index_disciplinary_cases_on_staff_id"
+  add_index "disciplinary_cases", ["staff_id"], name: "index_disciplinary_cases_on_staff_id", using: :btree
 
   create_table "disciplinary_measures", force: :cascade do |t|
     t.integer  "disciplinary_action_id"
@@ -111,8 +113,8 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "disciplinary_measures", ["disciplinary_action_id"], name: "index_disciplinary_measures_on_disciplinary_action_id"
-  add_index "disciplinary_measures", ["disciplinary_case_id"], name: "index_disciplinary_measures_on_disciplinary_case_id"
+  add_index "disciplinary_measures", ["disciplinary_action_id"], name: "index_disciplinary_measures_on_disciplinary_action_id", using: :btree
+  add_index "disciplinary_measures", ["disciplinary_case_id"], name: "index_disciplinary_measures_on_disciplinary_case_id", using: :btree
 
   create_table "employment_types", force: :cascade do |t|
     t.string   "name"
@@ -139,7 +141,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.integer  "position",   default: 0
   end
 
-  add_index "forem_categories", ["slug"], name: "index_forem_categories_on_slug", unique: true
+  add_index "forem_categories", ["slug"], name: "index_forem_categories_on_slug", unique: true, using: :btree
 
   create_table "forem_forums", force: :cascade do |t|
     t.string  "name"
@@ -150,27 +152,27 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.integer "position",    default: 0
   end
 
-  add_index "forem_forums", ["slug"], name: "index_forem_forums_on_slug", unique: true
+  add_index "forem_forums", ["slug"], name: "index_forem_forums_on_slug", unique: true, using: :btree
 
   create_table "forem_groups", force: :cascade do |t|
     t.string "name"
   end
 
-  add_index "forem_groups", ["name"], name: "index_forem_groups_on_name"
+  add_index "forem_groups", ["name"], name: "index_forem_groups_on_name", using: :btree
 
   create_table "forem_memberships", force: :cascade do |t|
     t.integer "group_id"
     t.integer "member_id"
   end
 
-  add_index "forem_memberships", ["group_id"], name: "index_forem_memberships_on_group_id"
+  add_index "forem_memberships", ["group_id"], name: "index_forem_memberships_on_group_id", using: :btree
 
   create_table "forem_moderator_groups", force: :cascade do |t|
     t.integer "forum_id"
     t.integer "group_id"
   end
 
-  add_index "forem_moderator_groups", ["forum_id"], name: "index_forem_moderator_groups_on_forum_id"
+  add_index "forem_moderator_groups", ["forum_id"], name: "index_forem_moderator_groups_on_forum_id", using: :btree
 
   create_table "forem_posts", force: :cascade do |t|
     t.integer  "topic_id"
@@ -183,10 +185,10 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.boolean  "notified",    default: false
   end
 
-  add_index "forem_posts", ["reply_to_id"], name: "index_forem_posts_on_reply_to_id"
-  add_index "forem_posts", ["state"], name: "index_forem_posts_on_state"
-  add_index "forem_posts", ["topic_id"], name: "index_forem_posts_on_topic_id"
-  add_index "forem_posts", ["user_id"], name: "index_forem_posts_on_user_id"
+  add_index "forem_posts", ["reply_to_id"], name: "index_forem_posts_on_reply_to_id", using: :btree
+  add_index "forem_posts", ["state"], name: "index_forem_posts_on_state", using: :btree
+  add_index "forem_posts", ["topic_id"], name: "index_forem_posts_on_topic_id", using: :btree
+  add_index "forem_posts", ["user_id"], name: "index_forem_posts_on_user_id", using: :btree
 
   create_table "forem_subscriptions", force: :cascade do |t|
     t.integer "subscriber_id"
@@ -208,10 +210,10 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.string   "slug"
   end
 
-  add_index "forem_topics", ["forum_id"], name: "index_forem_topics_on_forum_id"
-  add_index "forem_topics", ["slug"], name: "index_forem_topics_on_slug", unique: true
-  add_index "forem_topics", ["state"], name: "index_forem_topics_on_state"
-  add_index "forem_topics", ["user_id"], name: "index_forem_topics_on_user_id"
+  add_index "forem_topics", ["forum_id"], name: "index_forem_topics_on_forum_id", using: :btree
+  add_index "forem_topics", ["slug"], name: "index_forem_topics_on_slug", unique: true, using: :btree
+  add_index "forem_topics", ["state"], name: "index_forem_topics_on_state", using: :btree
+  add_index "forem_topics", ["user_id"], name: "index_forem_topics_on_user_id", using: :btree
 
   create_table "forem_views", force: :cascade do |t|
     t.integer  "user_id"
@@ -224,9 +226,9 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "past_viewed_at"
   end
 
-  add_index "forem_views", ["updated_at"], name: "index_forem_views_on_updated_at"
-  add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id"
-  add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id"
+  add_index "forem_views", ["updated_at"], name: "index_forem_views_on_updated_at", using: :btree
+  add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
+  add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
 
   create_table "interview_candidates", force: :cascade do |t|
     t.string   "name"
@@ -243,7 +245,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "interview_candidates", ["interview_id"], name: "index_interview_candidates_on_interview_id"
+  add_index "interview_candidates", ["interview_id"], name: "index_interview_candidates_on_interview_id", using: :btree
 
   create_table "interview_reports", force: :cascade do |t|
     t.string   "name"
@@ -290,7 +292,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "jobs", ["staff_id"], name: "index_jobs_on_staff_id"
+  add_index "jobs", ["staff_id"], name: "index_jobs_on_staff_id", using: :btree
 
   create_table "leave_types", force: :cascade do |t|
     t.string   "name"
@@ -309,8 +311,8 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "leaves", ["leave_type_id"], name: "index_leaves_on_leave_type_id"
-  add_index "leaves", ["staff_id"], name: "index_leaves_on_staff_id"
+  add_index "leaves", ["leave_type_id"], name: "index_leaves_on_leave_type_id", using: :btree
+  add_index "leaves", ["staff_id"], name: "index_leaves_on_staff_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -332,7 +334,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "onboardings", ["staff_id"], name: "index_onboardings_on_staff_id"
+  add_index "onboardings", ["staff_id"], name: "index_onboardings_on_staff_id", using: :btree
 
   create_table "people", force: :cascade do |t|
     t.string   "name"
@@ -348,8 +350,36 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at",          null: false
   end
 
-# Could not dump table "staff" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "staff", force: :cascade do |t|
+    t.string   "name"
+    t.date     "dob"
+    t.string   "gender"
+    t.string   "emergency_phone"
+    t.string   "emergency_name"
+    t.string   "emergency_address"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "marital_status"
+    t.string   "address"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "relationship"
+    t.boolean  "enabled",             default: true, null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "staff_status"
+    t.integer  "user_id"
+  end
+
+  add_index "staff", ["user_id"], name: "index_staff_on_user_id", using: :btree
+
+  create_table "subdomains", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string   "todo"
@@ -358,16 +388,7 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "tasks", ["onboarding_id"], name: "index_tasks_on_onboarding_id"
-
-  create_table "todos", force: :cascade do |t|
-    t.string   "task"
-    t.integer  "onboarding_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "todos", ["onboarding_id"], name: "index_todos_on_onboarding_id"
+  add_index "tasks", ["onboarding_id"], name: "index_tasks_on_onboarding_id", using: :btree
 
   create_table "tools", force: :cascade do |t|
     t.string   "name"
@@ -396,6 +417,9 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.integer  "role_id"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
   create_table "work_shifts", force: :cascade do |t|
     t.string   "name"
     t.time     "from"
@@ -404,4 +428,17 @@ ActiveRecord::Schema.define(version: 20150708035730) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "appraisals", "staff"
+  add_foreign_key "comments", "announcements"
+  add_foreign_key "company_assets", "staff"
+  add_foreign_key "dependents", "staff"
+  add_foreign_key "disciplinary_cases", "staff"
+  add_foreign_key "disciplinary_measures", "disciplinary_actions"
+  add_foreign_key "disciplinary_measures", "disciplinary_cases"
+  add_foreign_key "interview_candidates", "interviews"
+  add_foreign_key "jobs", "staff"
+  add_foreign_key "leaves", "leave_types"
+  add_foreign_key "leaves", "staff"
+  add_foreign_key "onboardings", "staff"
+  add_foreign_key "tasks", "onboardings"
 end

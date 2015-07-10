@@ -52,6 +52,9 @@
         <li><%= link_to 'Forum', forem.forums_path %></li>
         <li><%= link_to 'Audit Trail', main_app.staff_index_path %></li>
         <li><%= link_to 'Reports', main_app.staff_index_path %></li>
+        <% if user_signed_in? %>
+        <li><%= link_to 'Sign Out', main_app.destroy_user_session_path, method: :delete %></li>
+        <% end %>
       </ul>
       <!-- <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>

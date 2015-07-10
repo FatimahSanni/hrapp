@@ -20,6 +20,7 @@ gem 'paperclip'
 gem 'apartment'
 gem 'bootsy'
 gem 'pundit'
+gem 'pg'
 gem 'simple_form'
 gem 'forem', github: "radar/forem", branch: "rails4"
 gem 'forem-bootstrap', github: "radar/forem-bootstrap"
@@ -30,13 +31,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
 group :production do
-	gem 'pg'
+	
 	gem 'rails_12factor'
 end
