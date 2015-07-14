@@ -10,9 +10,19 @@
   <p>
     <%= link_to leave.leave_type.name, leave %> (<%= pluralize((leave.to - leave.starts_at).to_i, "day") %>)
   </p>
+  <% if leave.status == 'Approved' %>
+  <p class="label label-primary">
+    <%= leave.staff.name %>
+  </p>
+  <% elsif leave.status == 'Started' %>
+  <p class="label label-success">
+    <%= leave.staff.name %>
+  </p>
+  <% else %>
   <p class="label label-warning">
     <%= leave.staff.name %>
   </p>
+  <% end %>
 </div>
 <% end %>
 <% end %>

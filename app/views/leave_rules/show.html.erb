@@ -1,0 +1,17 @@
+<p>
+  <strong>Job category:</strong>
+  <%= @leave_rule.job_category %>
+</p>
+
+<p>
+  <strong>Days:</strong>
+  <%= @leave_rule.days %>
+</p>
+
+<p>
+  <strong>Employment type:</strong>
+  <%= @leave_rule.employment_type %>
+</p>
+
+<%= link_to 'Edit', edit_leave_rule_path(@leave_rule) %> |
+<%= link_to 'Back', leave_rules_path %>

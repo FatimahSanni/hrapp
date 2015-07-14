@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710122654) do
+ActiveRecord::Schema.define(version: 20150713125219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20150710122654) do
     t.text     "report"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "status"
   end
 
   add_index "disciplinary_cases", ["staff_id"], name: "index_disciplinary_cases_on_staff_id", using: :btree
@@ -294,6 +295,17 @@ ActiveRecord::Schema.define(version: 20150710122654) do
 
   add_index "jobs", ["staff_id"], name: "index_jobs_on_staff_id", using: :btree
 
+  create_table "leave_rules", force: :cascade do |t|
+    t.integer  "job_category_id"
+    t.integer  "days"
+    t.integer  "employment_type_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "leave_rules", ["employment_type_id"], name: "index_leave_rules_on_employment_type_id", using: :btree
+  add_index "leave_rules", ["job_category_id"], name: "index_leave_rules_on_job_category_id", using: :btree
+
   create_table "leave_types", force: :cascade do |t|
     t.string   "name"
     t.string   "number_of_days"
@@ -309,6 +321,7 @@ ActiveRecord::Schema.define(version: 20150710122654) do
     t.text     "comment"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "status"
   end
 
   add_index "leaves", ["leave_type_id"], name: "index_leaves_on_leave_type_id", using: :btree
@@ -437,6 +450,8 @@ ActiveRecord::Schema.define(version: 20150710122654) do
   add_foreign_key "disciplinary_measures", "disciplinary_cases"
   add_foreign_key "interview_candidates", "interviews"
   add_foreign_key "jobs", "staff"
+  add_foreign_key "leave_rules", "employment_types"
+  add_foreign_key "leave_rules", "job_categories"
   add_foreign_key "leaves", "leave_types"
   add_foreign_key "leaves", "staff"
   add_foreign_key "onboardings", "staff"

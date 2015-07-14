@@ -1,0 +1,13 @@
+<%= simple_form_for(@leave_rule) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :job_category %>
+    <%= f.input :days %>
+    <%= f.association :employment_type %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+<% end %>

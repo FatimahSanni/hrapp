@@ -1,0 +1,2 @@
+module LeaveRulesHelper
+end

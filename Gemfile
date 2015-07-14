@@ -20,6 +20,7 @@ gem 'paperclip'
 gem 'apartment'
 gem 'bootsy'
 gem 'pundit'
+gem 'paper_trail'
 gem 'pg'
 gem 'simple_form'
 gem 'forem', github: "radar/forem", branch: "rails4"

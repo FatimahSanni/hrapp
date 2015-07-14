@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :leave_rules
+
   resources :subdomains
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
