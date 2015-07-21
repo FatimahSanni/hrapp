@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :staff_id %>
-    <%= f.collection_select :staff_id, Staff.all, :id, :name, {prompt: "Select Staff"}, {class: "form-control"} %>
+    <%= f.text_field :staff_name, class: "form-control" %>
   </div> <br>
   <div class="form-inline">
     <%= f.label :from %>
@@ -56,10 +56,6 @@
   <div class="form-group">
     <%= f.label :supervisory_ability %>
     <span id="sup", data-score=<%=@appraisal.supervisory_ability %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :overall %>
-    <span id="ove", data-score=<%=@appraisal.overall %>></span>
   </div>
   <div class="form-group">
     <%= f.label :comment %>
@@ -158,15 +154,5 @@ $('#sup').raty({
           return $(this).attr('data-score');
         } 
   });
-$('#ove').raty({
-    starOn: '<%= image_path('star-on.png') %>',
-    starOff: '<%= image_path('star-off.png') %>',
-    starHalf: '<%= image_path('star-half.png') %>',
-    path: '',
-    scoreName: 'appraisal[overall]',
-    space: true,
-    score: function(){
-          return $(this).attr('data-score');
-        } 
-  });
+
 </script>

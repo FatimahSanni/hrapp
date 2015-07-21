@@ -16,11 +16,11 @@
   <tbody>
     <% @appraisals.each do |appraisal| %>
       <tr>
-        <td><%= appraisal.staff.name %></td>
+        <td><%= appraisal.staff_name %></td>
         <td><%= appraisal.from %></td>
         <td><%= appraisal.to %></td>
         <td><%= appraisal.appraisal_type %></td>
-        <td class="star-rating", data-score=<%= appraisal.overall %>></td>
+        <td class="star-rating", data-score=<%= appraisal.total %>></td>
         <td><%= appraisal.comment %></td>
         <td><%= link_to 'Show', appraisal %></td>
         <td><%= link_to 'Edit', edit_appraisal_path(appraisal) %></td>

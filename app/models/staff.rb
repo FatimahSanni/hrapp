@@ -13,4 +13,5 @@ class Staff < ActiveRecord::Base
 	paginates_per 10
 	has_many :leaves, dependent: :destroy
 	belongs_to :user
+	has_paper_trail
 end

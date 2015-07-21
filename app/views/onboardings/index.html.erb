@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Onboardings</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Staff</th>
@@ -13,7 +11,7 @@
   <tbody>
     <% @onboardings.each do |onboarding| %>
       <tr>
-        <td><%= onboarding.staff %></td>
+        <td><%= onboarding.staff_name %></td>
         <td><%= link_to 'Show', onboarding %></td>
         <td><%= link_to 'Edit', edit_onboarding_path(onboarding) %></td>
         <td><%= link_to 'Destroy', onboarding, method: :delete, data: { confirm: 'Are you sure?' } %></td>
