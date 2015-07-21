@@ -1,0 +1,14 @@
+
+<p>
+  <strong>Note:</strong>
+  <%= @exit_interview.note %>
+</p>
+<p>
+	<ul class="list-inline">
+		<% @exit_interview.tag_list.each do |t| %>
+		<li><span class="label label-primary"><%= t %></span>	</li>
+		<% end %>
+	</ul>
+</p>
+<%= link_to 'Edit', edit_exit_interview_path(@exit_interview) %> |
+<%= link_to 'Back', exit_interviews_path %>

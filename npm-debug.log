@@ -1,0 +1,53 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'express' ]
+2 info using npm@2.7.5
+3 info using node@v0.12.2
+4 verbose node symlink /usr/local/bin/node
+5 verbose config Skipping project config: /Users/fatimahsanni/.npmrc. (matches userconfig)
+6 silly cache add args [ 'express', null ]
+7 verbose cache add spec express
+8 silly cache add parsed spec { raw: 'express',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'express',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 verbose addNamed express@*
+10 silly addNamed semver.valid null
+11 silly addNamed semver.validRange *
+12 silly addNameRange { name: 'express', range: '*', hasData: false }
+13 silly mapToRegistry name express
+14 silly mapToRegistry using default registry
+15 silly mapToRegistry registry https://registry.npmjs.org/
+16 silly mapToRegistry uri https://registry.npmjs.org/express
+17 verbose addNameRange registry:https://registry.npmjs.org/express not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/express
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 13:20:53
+21 verbose request id 6fc52cb58019495e
+22 http request GET https://registry.npmjs.org/express
+23 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+24 info attempt registry request try #2 at 13:21:03
+25 http request GET https://registry.npmjs.org/express
+26 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org
+27 info attempt registry request try #3 at 13:22:03
+28 http request GET https://registry.npmjs.org/express
+29 verbose stack Error: getaddrinfo ENOTFOUND registry.npmjs.org
+29 verbose stack     at errnoException (dns.js:44:10)
+29 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:94:26)
+30 verbose cwd /Users/fatimahsanni/Documents/Projects/hrapp
+31 error Darwin 14.1.0
+32 error argv "node" "/usr/local/bin/npm" "install" "express"
+33 error node v0.12.2
+34 error npm  v2.7.5
+35 error code ENOTFOUND
+36 error errno ENOTFOUND
+37 error syscall getaddrinfo
+38 error network getaddrinfo ENOTFOUND registry.npmjs.org
+38 error network This is most likely not a problem with npm itself
+38 error network and is related to network connectivity.
+38 error network In most cases you are behind a proxy or have bad network settings.
+38 error network
+38 error network If you are behind a proxy, please make sure that the
+38 error network 'proxy' config is set properly.  See: 'npm help config'
+39 verbose exit [ 1, true ]
