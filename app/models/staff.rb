@@ -1,4 +1,5 @@
 class Staff < ActiveRecord::Base
+	after_create :create_user_account
 	# validates :name, :address, :mobile, :emergency_name, :gender, :marital_status, :emergency_phone, presence: true
 	Gender = %w(Male Female)
 	Status = %w(Single Married)
@@ -14,4 +15,16 @@ class Staff < ActiveRecord::Base
 	has_many :leaves, dependent: :destroy
 	belongs_to :user
 	has_paper_trail
+
+
+	private
+
+	def create_user_account
+		data = self.email
+		role = 1
+		u = User.create(username: data, email: data, password: data, password_confirmation: data, role_id: role)
+		self.update_attribute(:user_id, u.id)
+	end
+
+
 end

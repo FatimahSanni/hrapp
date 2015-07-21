@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :roles
+
   resources :exit_interviews
 
   resources :leave_rules
@@ -32,6 +34,10 @@ Rails.application.routes.draw do
   as :user do
     get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
     patch 'users/:id' => 'devise/registrations#update', :as => 'user_registration' 
+  end
+
+  scope '/admin' do
+    resources :users
   end
 
   resources :interviews
