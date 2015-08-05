@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = @announcement.comments.build
+    @comment.parent_id = params[:parent_id]
   end
 
   # GET /comments/1/edit
@@ -29,7 +30,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to [@announcement, @comment], notice: 'Comment was successfully created.' }
+        format.html { redirect_to @announcement, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: [@announcement, @comment] }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to [@announcement, @comment], notice: 'Comment was successfully updated.' }
+        format.html { redirect_to @announcement, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: [@announcement, @comment] }
       else
         format.html { render :edit }
@@ -68,11 +69,11 @@ class CommentsController < ApplicationController
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Announcement.comments.find(params[:id])
+      @comment = @announcement.comments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:comment, :announcement_id)
+      params.require(:comment).permit(:comment, :announcement_id, :parent_id)
     end
 end

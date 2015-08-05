@@ -17,6 +17,13 @@ class Staff < ActiveRecord::Base
 	has_paper_trail
 
 
+	def confirmation_status
+		if Date.today >= (self.hire_date + 6.month)
+			self.name
+		end
+	end
+
+
 	private
 
 	def create_user_account

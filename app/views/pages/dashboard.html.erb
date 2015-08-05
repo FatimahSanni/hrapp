@@ -29,6 +29,21 @@
 				
 				<% end %>
 			</div>
+		</div>
 	</div>
-	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<div class="panel panel-danger">
+			<div class="panel-heading">
+				Awaiting confirmation (<%= confirmation.count %>)
+			</div>
+			<div class="panel-body">
+				<% confirmation.each do |c| %>
+				<ul>
+					<li><%= link_to c.name, edit_staff_path(c) %></li>
+				</ul>
+				
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>

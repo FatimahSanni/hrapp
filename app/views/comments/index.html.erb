@@ -1,9 +1,11 @@
-<h1>Listing Comments</h1>
+<h3><%= pluralize(@comments.count, 'Comment') %> for <%= @announcement.topic %></h3>
 
-<table>
+<%= @comments.arrange(order: :created_at) %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Comment</th>
+      <th>Comments</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +15,7 @@
       <tr>
         <td><%= comment.comment %></td>
         <td><%= link_to 'Show', [@announcement, comment] %></td>
-        <td><%= link_to 'Edit', edit_announcement_comment_path(comment) %></td>
+        <td><%= link_to 'Edit', [:edit, @announcement, comment] %></td>
         <td><%= link_to 'Destroy', [@announcement, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

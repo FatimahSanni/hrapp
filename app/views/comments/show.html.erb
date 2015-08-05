@@ -3,10 +3,5 @@
   <%= @comment.comment %>
 </p>
 
-<p>
-  <strong>Announcement:</strong>
-  <%= @comment.announcement %>
-</p>
-
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', [:edit, @announcement, @comment] %> |
+<%= link_to 'Back', announcement_comments_path %>

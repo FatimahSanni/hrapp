@@ -69,6 +69,6 @@ class LeavesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def leave_params
-      params.require(:leave).permit(:leave_type_id, :staff_id, :starts_at, :to, :comment)
+      params.require(:leave).permit(:leave_type_id, :staff_id, :starts_at, :to, :comment, :status)
     end
 end

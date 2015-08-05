@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootsy
 //= require cocoon
+//= require bootstrap-datepicker
 //= require forem
 //= require bootstrap-sprockets
 //= require turbolinks

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   def timeout_in
-    1.hour
+    5.hour
   end
 
   def forem_name

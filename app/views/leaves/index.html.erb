@@ -14,8 +14,8 @@
   <p class="label label-primary">
     <%= leave.staff.name %>
   </p>
-  <% elsif leave.status == 'Started' %>
-  <p class="label label-success">
+  <% elsif leave.status == 'Denied' %>
+  <p class="label label-danger">
     <%= leave.staff.name %>
   </p>
   <% else %>
@@ -23,6 +23,10 @@
     <%= leave.staff.name %>
   </p>
   <% end %>
+</div>
+<div>
+  <br>
+  <p>End-Date: <%= leave.to.strftime("%d/%m/%Y") %></p>
 </div>
 <% end %>
 <% end %>

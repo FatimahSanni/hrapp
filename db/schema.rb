@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721133002) do
+ActiveRecord::Schema.define(version: 20150805104618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,8 +64,10 @@ ActiveRecord::Schema.define(version: 20150721133002) do
     t.integer  "announcement_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "ancestry"
   end
 
+  add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
   add_index "comments", ["announcement_id"], name: "index_comments_on_announcement_id", using: :btree
 
   create_table "company_assets", force: :cascade do |t|
@@ -382,20 +384,22 @@ ActiveRecord::Schema.define(version: 20150721133002) do
     t.string   "emergency_phone"
     t.string   "emergency_name"
     t.string   "emergency_address"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "marital_status"
     t.string   "address"
     t.string   "mobile"
     t.string   "email"
     t.string   "relationship"
-    t.boolean  "enabled",             default: true, null: false
+    t.boolean  "enabled",             default: true,  null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "staff_status"
     t.integer  "user_id"
+    t.date     "hire_date"
+    t.boolean  "confirmed",           default: false, null: false
   end
 
   add_index "staff", ["user_id"], name: "index_staff_on_user_id", using: :btree

@@ -9,3 +9,19 @@
 </p>
 <%= link_to 'Edit', edit_announcement_path(@announcement) %> |
 <%= link_to 'Back', announcements_path %>
+<hr>
+<% if @announcement.comments.blank? %>
+<h3><%= link_to 'No comments yet. Be the first!', new_announcement_comment_path(@announcement) %></h3>
+<hr>
+<% else %>
+<ul>
+	<p><em><%= pluralize(@announcement.comments.count, 'comment') %></em> <%= link_to 'Join the conversation', new_announcement_comment_path(@announcement) %></p>
+	<% @announcement.comments.each do |c| %>
+	<li class="well list-unstyled">
+		<p><%= c.comment %></p>
+		<p><%= link_to 'Reply', new_announcement_comment_path(@announcement, parent_id: c) %></p>
+	</li>
+	<% end %>
+</ul>
+<% end %>
+
