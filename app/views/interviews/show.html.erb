@@ -1,5 +1,5 @@
 <p>
-  <strong>Interviewer:</strong>
+  <strong>Interviewers:</strong>
   <span><%= @interview.interviewer %>
 </span>
 
@@ -23,10 +23,11 @@
 			<th>Initiative</th>
 			<th>Enthusiasm</th>
 			<th>Knowledge of Company</th>
+			<th>Total</th>
 		</tr>
 	</thead>
 	<tbody>
-		<% @interview.interview_candidates.each do |i| %>
+		<% @interview.interview_candidates.sorted.each do |i| %>
 		<tr>
 			<td> <%= i.name %></td>
 			<td class="star-rating" data-score = <%= i.education %>></td>
@@ -36,6 +37,7 @@
 			<td class="star-rating" data-score = <%= i.initiative %>></td>
 			<td class="star-rating" data-score = <%= i.enthusiasm %>></td>
 			<td class="star-rating" data-score = <%= i.company %>></td>
+			<td><%= i.average %></td>
 		</tr>
 		<% end %>
 	</tbody>
