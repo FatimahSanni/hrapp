@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="form-group">
+    <span class="pull-right">
+      <%= f.check_box :close %>
+      <%= f.label :close, "Close Case" %>
+    </span>
     <%= f.label :staff_id %>
     <%= f.collection_select :staff_id, Staff.all, :id, :name, {include_blank: true}, {class: "form-control"} %>
   </div>
@@ -21,7 +25,11 @@
   </div>
   <div class="form-group">
     <%= f.label :report %>
-    <%= f.text_area :report, rows: 15, class: "form-control" %>
+    <%= f.text_area :report, rows: 10, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :action_taken %>
+    <%= f.collection_select :disciplinary_action_id, DisciplinaryAction.all, :id, :name, {prompt: "Select Appropriate Action"}, {class: "form-control", style: "width:60%"} %>
   </div>
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>

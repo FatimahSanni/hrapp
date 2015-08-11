@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805162743) do
+ActiveRecord::Schema.define(version: 20150806153353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,11 +100,13 @@ ActiveRecord::Schema.define(version: 20150805162743) do
     t.integer  "staff_id"
     t.string   "reason"
     t.text     "report"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "status"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "disciplinary_action_id"
+    t.boolean  "close",                  default: false, null: false
   end
 
+  add_index "disciplinary_cases", ["disciplinary_action_id"], name: "index_disciplinary_cases_on_disciplinary_action_id", using: :btree
   add_index "disciplinary_cases", ["staff_id"], name: "index_disciplinary_cases_on_staff_id", using: :btree
 
   create_table "disciplinary_measures", force: :cascade do |t|
@@ -495,6 +497,7 @@ ActiveRecord::Schema.define(version: 20150805162743) do
   add_foreign_key "comments", "announcements"
   add_foreign_key "company_assets", "staff"
   add_foreign_key "dependents", "staff"
+  add_foreign_key "disciplinary_cases", "disciplinary_actions"
   add_foreign_key "disciplinary_cases", "staff"
   add_foreign_key "disciplinary_measures", "disciplinary_actions"
   add_foreign_key "disciplinary_measures", "disciplinary_cases"

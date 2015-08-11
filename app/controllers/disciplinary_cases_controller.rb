@@ -69,6 +69,6 @@ class DisciplinaryCasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def disciplinary_case_params
-      params.require(:disciplinary_case).permit(:staff_id, :reason, :report, disciplinary_measure_attributes: [:id, :disciplinary_action_id, :comment, :status, :_destroy])
+      params.require(:disciplinary_case).permit(:staff_id, :reason, :report, :disciplinary_action_id, :close)
     end
-end
+  end

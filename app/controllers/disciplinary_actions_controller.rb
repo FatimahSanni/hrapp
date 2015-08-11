@@ -27,18 +27,9 @@ class DisciplinaryActionsController < ApplicationController
     @disciplinary_action = DisciplinaryAction.new(disciplinary_action_params)
 
     respond_to do |format|
-      if params[:commit] == 'Create Disciplinary action'
         if @disciplinary_action.save
           format.html { redirect_to disciplinary_actions_url, notice: 'Disciplinary action was successfully created.' }
           format.json { render :index, status: :created, location: disciplinary_actions_url }
-          else
-            format.html { render :new }
-            format.json { render json: @disciplinary_action.errors, status: :unprocessable_entity }
-          end
-      elsif params[:commit] == 'Save and Add Another'
-        @disciplinary_action.save
-        format.html { render :new }
-        format.json { render :new, status: :created, location: new_disciplinary_action_url }
       else
         format.html { render :new }
         format.json { render json: @disciplinary_action.errors, status: :unprocessable_entity }
