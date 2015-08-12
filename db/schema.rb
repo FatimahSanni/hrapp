@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812094825) do
+ActiveRecord::Schema.define(version: 20150812105302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,7 +185,10 @@ ActiveRecord::Schema.define(version: 20150812094825) do
     t.string   "gave_feedback"
     t.string   "clear_decision"
     t.text     "management_comment"
+    t.integer  "staff_id"
   end
+
+  add_index "exit_interviews", ["staff_id"], name: "index_exit_interviews_on_staff_id", using: :btree
 
   create_table "file_uploads", force: :cascade do |t|
     t.string   "name"
@@ -555,6 +558,7 @@ ActiveRecord::Schema.define(version: 20150812094825) do
   add_foreign_key "disciplinary_cases", "staff"
   add_foreign_key "disciplinary_measures", "disciplinary_actions"
   add_foreign_key "disciplinary_measures", "disciplinary_cases"
+  add_foreign_key "exit_interviews", "staff"
   add_foreign_key "interview_candidates", "interviews"
   add_foreign_key "jobs", "staff"
   add_foreign_key "leave_rules", "employment_types"

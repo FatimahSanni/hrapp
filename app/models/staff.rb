@@ -15,6 +15,7 @@ class Staff < ActiveRecord::Base
 	has_many :leaves, dependent: :destroy
 	belongs_to :user
 	has_paper_trail
+	has_one :exit_interview
 
 
 	def confirmation_status
