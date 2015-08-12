@@ -1,0 +1,90 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingComp">
+			<h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseComp" aria-expanded="false" aria-controls="collapseComp">The Company<span class="pull-right">+</span></a></h4>
+		</div>
+		<div id="collapseComp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingComp">
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Strongly Disagree</th>
+							<th>Disagree</th>
+							<th>Agree</th>
+							<th>Strongly Agree</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>When you started, did the orientation help and was it accurate?</td>
+							<td><%= f.radio_button :orientation, "strongly disagree" %></td>
+							<td><%= f.radio_button :orientation, "disagree" %></td>
+							<td><%= f.radio_button :orientation, "agree" %></td>
+							<td><%= f.radio_button :orientation, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Was a good and positive environment to work in</td>
+							<td><%= f.radio_button :positive_environment, "strongly disagree" %></td>
+							<td><%= f.radio_button :positive_environment, "disagree" %></td>
+							<td><%= f.radio_button :positive_environment, "agree" %></td>
+							<td><%= f.radio_button :positive_environment, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Had adequate equipment to do the work</td>
+							<td><%= f.radio_button :adequate_equipment, "strongly disagree" %></td>
+							<td><%= f.radio_button :adequate_equipment, "disagree" %></td>
+							<td><%= f.radio_button :adequate_equipment, "agree" %></td>
+							<td><%= f.radio_button :adequate_equipment, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Got on well with other staff within the company</td>
+							<td><%= f.radio_button :get_on, "strongly disagree" %></td>
+							<td><%= f.radio_button :get_on, "disagree" %></td>
+							<td><%= f.radio_button :get_on, "agree" %></td>
+							<td><%= f.radio_button :get_on, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>There were sufficient staff to cover the work</td>
+							<td><%= f.radio_button :sufficient_staff, "strongly disagree" %></td>
+							<td><%= f.radio_button :sufficient_staff, "disagree" %></td>
+							<td><%= f.radio_button :sufficient_staff, "agree" %></td>
+							<td><%= f.radio_button :sufficient_staff, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>The company was efficient in its dealings</td>
+							<td><%= f.radio_button :efficient_company, "strongly disagree" %></td>
+							<td><%= f.radio_button :efficient_company, "disagree" %></td>
+							<td><%= f.radio_button :efficient_company, "agree" %></td>
+							<td><%= f.radio_button :efficient_company, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Internal communication worked well</td>
+							<td><%= f.radio_button :internal_communication, "strongly disagree" %></td>
+							<td><%= f.radio_button :internal_communication, "disagree" %></td>
+							<td><%= f.radio_button :internal_communication, "agree" %></td>
+							<td><%= f.radio_button :internal_communication, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>There was no bullying or harassment</td>
+							<td><%= f.radio_button :no_bullying, "strongly disagree" %></td>
+							<td><%= f.radio_button :no_bullying, "disagree" %></td>
+							<td><%= f.radio_button :no_bullying, "agree" %></td>
+							<td><%= f.radio_button :no_bullying, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>The business did not discriminate against my employee</td>
+							<td><%= f.radio_button :discrimination, "strongly disagree" %></td>
+							<td><%= f.radio_button :discrimination, "disagree" %></td>
+							<td><%= f.radio_button :discrimination, "agree" %></td>
+							<td><%= f.radio_button :discrimination, "strongly agree" %></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-group">
+					<%= f.text_area :company_comment, placeholder: "What do you think can be improved about the department and/or company?", rows: 5, class: "form-control" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

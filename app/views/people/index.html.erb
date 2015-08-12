@@ -7,7 +7,6 @@
       <th>Position</th>
       <th>Phone</th>
       <th>Email</th>
-      <th>Comment</th>
       <th>Resume</th>
       <th colspan="3"></th>
     </tr>
@@ -20,7 +19,6 @@
         <td><%= person.position %></td>
         <td><%= person.phone %></td>
         <td><%= person.email %></td>
-        <td><%= person.comment %></td>
         <td><%= link_to person.resume_file_name, person.resume.url %>(<%= number_to_human_size(person.resume_file_size) %>)</td>
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>

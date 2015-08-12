@@ -1,0 +1,90 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingSup">
+			<h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSup" aria-expanded="false" aria-controls="collapseSup">Supervisor/Line Manager<span class="pull-right">+</span></a></h4>
+		</div>
+		<div id="collapseSup" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSup">
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Strongly Disagree</th>
+							<th>Disagree</th>
+							<th>Agree</th>
+							<th>Strongly Agree</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Had sufficient knowledge of the job</td>
+							<td><%= f.radio_button :sufficient_knowledge, "strongly disagree" %></td>
+							<td><%= f.radio_button :sufficient_knowledge, "disagree" %></td>
+							<td><%= f.radio_button :sufficient_knowledge, "agree" %></td>
+							<td><%= f.radio_button :sufficient_knowledge, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Is experienced in supervision</td>
+							<td><%= f.radio_button :experience, "strongly disagree" %></td>
+							<td><%= f.radio_button :experience, "disagree" %></td>
+							<td><%= f.radio_button :experience, "agree" %></td>
+							<td><%= f.radio_button :experience, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Was open to suggestions</td>
+							<td><%= f.radio_button :open, "strongly disagree" %></td>
+							<td><%= f.radio_button :open, "disagree" %></td>
+							<td><%= f.radio_button :open, "agree" %></td>
+							<td><%= f.radio_button :open, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Recognised and acknowledged achievements</td>
+							<td><%= f.radio_button :acknowledge_achievements, "strongly disagree" %></td>
+							<td><%= f.radio_button :acknowledge_achievements, "disagree" %></td>
+							<td><%= f.radio_button :acknowledge_achievements, "agree" %></td>
+							<td><%= f.radio_button :acknowledge_achievements, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Acknowledged employees contributions</td>
+							<td><%= f.radio_button :recognise_contributions, "strongly disagree" %></td>
+							<td><%= f.radio_button :recognise_contributions, "disagree" %></td>
+							<td><%= f.radio_button :recognise_contributions, "agree" %></td>
+							<td><%= f.radio_button :recognise_contributions, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Offered and promoted ways to develop</td>
+							<td><%= f.radio_button :promote_development, "strongly disagree" %></td>
+							<td><%= f.radio_button :promote_development, "disagree" %></td>
+							<td><%= f.radio_button :promote_development, "agree" %></td>
+							<td><%= f.radio_button :promote_development, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Provided constructive feedback</td>
+							<td><%= f.radio_button :constructive_feedback, "strongly disagree" %></td>
+							<td><%= f.radio_button :constructive_feedback, "disagree" %></td>
+							<td><%= f.radio_button :constructive_feedback, "agree" %></td>
+							<td><%= f.radio_button :constructive_feedback, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Clearly communicated management decisions and how they would effect your work</td>
+							<td><%= f.radio_button :clear_communication, "strongly disagree" %></td>
+							<td><%= f.radio_button :clear_communication, "disagree" %></td>
+							<td><%= f.radio_button :clear_communication, "agree" %></td>
+							<td><%= f.radio_button :clear_communication, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Maintained a professional relationship with you</td>
+							<td><%= f.radio_button :professional_relationship, "strongly disagree" %></td>
+							<td><%= f.radio_button :professional_relationship, "disagree" %></td>
+							<td><%= f.radio_button :professional_relationship, "agree" %></td>
+							<td><%= f.radio_button :professional_relationship, "strongly agree" %></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-group">
+					<%= f.text_area :supervisor_comment, placeholder: "What are your suggestions or improvements to your supervisor?", rows: 5, class: "form-control" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

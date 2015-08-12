@@ -1,16 +1,80 @@
 <%= simple_form_for(@exit_interview) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :note %>
+  <hr>
+  <h3 class="help-block"><em>What are the reasons for leaving?</em></h3>
+  <br>
+  <h5>Select one or more:</h5>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <%= f.check_box :higher_pay %> Higher pay
+        </td>
+        <td>
+          <%= f.check_box :better_benefits %> Better Benefits
+        </td>
+        <td>
+          <%= f.check_box :better_career %> Better career opportunity
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.check_box :life_balance %> Improved work life balance
+        </td>
+        <td>
+          <%= f.check_box :career_change %> Career change
+        </td>
+        <td>
+          <%= f.check_box :closer %> Closer to home
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.check_box :employee_conflict %> Conflict with other employees
+        </td>
+        <td>
+          <%= f.check_box :manager_conflict %> Conflict with managers
+        </td>
+        <td>
+          <%= f.check_box :family %> Family and/or personal reasons
+        </td>
+        <tr>
+          <td>
+            <%= f.check_box :company_instability %> Company instability
+          </td>
+          <td>
+            <%= f.check_box :other %> Other
+          </td>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
+  <div class="form-group">
+    <%= f.label :comment, "Other Reasons" %>
+    <%= f.text_area :comment, rows: 5, class: "form-control" %>
   </div>
 
+ 
+ <!-- The Job -->
+ <%= render 'job', f: f %>
+ <!-- Remuneration -->
+ <%= render 'remuneration', f: f %>
+ <!-- The Company -->
+ <%= render 'company', f: f %>
+ <!-- Line Manager -->
+ <%= render 'line_manager', f: f %>
+ <!-- Management -->
+ <%= render 'management', f:  f %>
   <div class="form-inputs">
     <%= f.input :tag_list %>
     <p class="help-block"><em>Keywords seperated by commas.</em></p>
   </div>
+<br>
+<p><strong>
+  <em>Thank you for completing this information. Your responses will be treated with total confidence.</em>
+</strong></p>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806153353) do
+ActiveRecord::Schema.define(version: 20150812094825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,8 +129,62 @@ ActiveRecord::Schema.define(version: 20150806153353) do
 
   create_table "exit_interviews", force: :cascade do |t|
     t.text     "note"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.boolean  "higher_pay",                     default: false, null: false
+    t.boolean  "better_benefits",                default: false, null: false
+    t.boolean  "better_career",                  default: false, null: false
+    t.boolean  "life_balance",                   default: false, null: false
+    t.boolean  "career_change",                  default: false, null: false
+    t.boolean  "closer",                         default: false, null: false
+    t.boolean  "employee_conflict",              default: false, null: false
+    t.boolean  "manager_conflict",               default: false, null: false
+    t.boolean  "family",                         default: false, null: false
+    t.boolean  "company_instability",            default: false, null: false
+    t.boolean  "other",                          default: false, null: false
+    t.text     "comment"
+    t.string   "job_challenge"
+    t.string   "opportunities"
+    t.string   "workload"
+    t.string   "resources"
+    t.string   "colleagues"
+    t.string   "skills"
+    t.string   "training"
+    t.text     "job_comment"
+    t.string   "salary"
+    t.string   "timely_wage"
+    t.string   "benefit"
+    t.string   "work_life_balance"
+    t.text     "benefit_comment"
+    t.string   "orientation"
+    t.string   "positive_environment"
+    t.string   "adequate_equipment"
+    t.string   "get_on"
+    t.string   "sufficient_staff"
+    t.string   "efficient_company"
+    t.string   "internal_communication"
+    t.string   "no_bullying"
+    t.string   "discrimination"
+    t.text     "company_comment"
+    t.string   "sufficient_knowledge"
+    t.string   "experience"
+    t.string   "open"
+    t.string   "acknowledge_achievements"
+    t.string   "recognise_contributions"
+    t.string   "promote_development"
+    t.string   "constructive_feedback"
+    t.string   "clear_communication"
+    t.string   "professional_relationship"
+    t.text     "supervisor_comment"
+    t.string   "equal_treatment"
+    t.string   "discuss_issues"
+    t.string   "encourage_feedback"
+    t.string   "consistent_policies"
+    t.string   "provide_recognition"
+    t.string   "gave_development_opportunities"
+    t.string   "gave_feedback"
+    t.string   "clear_decision"
+    t.text     "management_comment"
   end
 
   create_table "file_uploads", force: :cascade do |t|

@@ -1,0 +1,76 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingJob">
+			<h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseJob" aria-expanded="false" aria-controls="collapseJob">The Job<span class="pull-right">+</span></a></h4>
+		</div>
+		<div id="collapseJob" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob">
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Strongly Disagree</th>
+							<th>Disagree</th>
+							<th>Agree</th>
+							<th>Strongly Agree</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Job was challenging</td>
+							<td><%= f.radio_button :job_challenge, "strongly disagree" %></td>
+							<td><%= f.radio_button :job_challenge, "disagree" %></td>
+							<td><%= f.radio_button :job_challenge, "agree" %></td>
+							<td><%= f.radio_button :job_challenge, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>There were sufficient opportunities for advancement</td>
+							<td><%= f.radio_button :opportunities, "strongly disagree" %></td>
+							<td><%= f.radio_button :opportunities, "disagree" %></td>
+							<td><%= f.radio_button :opportunities, "agree" %></td>
+							<td><%= f.radio_button :opportunities, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Workload was manageable</td>
+							<td><%= f.radio_button :workload, "strongly disagree" %></td>
+							<td><%= f.radio_button :workload, "disagree" %></td>
+							<td><%= f.radio_button :workload, "agree" %></td>
+							<td><%= f.radio_button :workload, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Sufficient resources and staff were available</td>
+							<td><%= f.radio_button :resources, "strongly disagree" %></td>
+							<td><%= f.radio_button :resources, "disagree" %></td>
+							<td><%= f.radio_button :resources, "agree" %></td>
+							<td><%= f.radio_button :resources, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Your colleagues listened and appreciated your suggestions</td>
+							<td><%= f.radio_button :colleagues, "strongly disagree" %></td>
+							<td><%= f.radio_button :colleagues, "disagree" %></td>
+							<td><%= f.radio_button :colleagues, "agree" %></td>
+							<td><%= f.radio_button :colleagues, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Your skills were effectively used</td>
+							<td><%= f.radio_button :skills, "strongly disagree" %></td>
+							<td><%= f.radio_button :skills, "disagree" %></td>
+							<td><%= f.radio_button :skills, "agree" %></td>
+							<td><%= f.radio_button :skills, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>You had access to adequate training and development programs</td>
+							<td><%= f.radio_button :training, "strongly disagree" %></td>
+							<td><%= f.radio_button :training, "disagree" %></td>
+							<td><%= f.radio_button :training, "agree" %></td>
+							<td><%= f.radio_button :training, "strongly agree" %></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-group">
+					<%= f.text_area :job_comment, placeholder: "What do you think can be improved about the job?", rows: 5, class: "form-control" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

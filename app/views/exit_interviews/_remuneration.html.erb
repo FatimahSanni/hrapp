@@ -1,0 +1,55 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingRem">
+			<h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseRem" aria-expanded="false" aria-controls="collapseRem">Remuneration and Benefits<span class="pull-right">+</span></a></h4>
+		</div>
+		<div id="collapseRem" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingRem">
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Strongly Disagree</th>
+							<th>Disagree</th>
+							<th>Agree</th>
+							<th>Strongly Agree</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>The salary was adequate in relation to responsibilities</td>
+							<td><%= f.radio_button :salary, "strongly disagree" %></td>
+							<td><%= f.radio_button :salary, "disagree" %></td>
+							<td><%= f.radio_button :salary, "agree" %></td>
+							<td><%= f.radio_button :salary, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Salary was paid on time</td>
+							<td><%= f.radio_button :timely_wage, "strongly disagree" %></td>
+							<td><%= f.radio_button :timely_wage, "disagree" %></td>
+							<td><%= f.radio_button :timely_wage, "agree" %></td>
+							<td><%= f.radio_button :timely_wage, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Other benefits were good</td>
+							<td><%= f.radio_button :benefit, "strongly disagree" %></td>
+							<td><%= f.radio_button :benefit, "disagree" %></td>
+							<td><%= f.radio_button :benefit, "agree" %></td>
+							<td><%= f.radio_button :benefit, "strongly agree" %></td>
+						</tr>
+						<tr>
+							<td>Work-life balance was promoted and practised</td>
+							<td><%= f.radio_button :work_life_balance, "strongly disagree" %></td>
+							<td><%= f.radio_button :work_life_balance, "disagree" %></td>
+							<td><%= f.radio_button :work_life_balance, "agree" %></td>
+							<td><%= f.radio_button :work_life_balance, "strongly agree" %></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="form-group">
+					<%= f.text_area :benefit_comment, placeholder: "What improvements or other benefits could the company offer?", rows: 5, class: "form-control" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
