@@ -24,14 +24,11 @@ class Staff < ActiveRecord::Base
 		end
 	end
 
-
-	private
-
 	def create_user_account
 		data = self.email
 		role = 1
 		u = User.create(username: data, email: data, password: data, password_confirmation: data, role_id: role)
-		self.update_attribute(:user_id, u.id)
+		update_attribute(:user_id, u.id)
 	end
 
 

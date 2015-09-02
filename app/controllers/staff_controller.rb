@@ -29,10 +29,10 @@ class StaffController < ApplicationController
   def create
 
     @staff = Staff.new(staff_params)
-    @staff.user_id = current_user.id
 
     respond_to do |format|
       if @staff.save
+        UserMailer.welcome_email(@staff.user).deliver_now
         format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
         format.json { render :show, status: :created, location: @staff }
       else

@@ -40,8 +40,10 @@ class ApplicationController < ActionController::Base
   def confirmation
     @employees = Staff.where(confirmed: false)
     @employees.each do |employee|
-      if Date.today >= (employee.hire_date + 6.month)
-        employee
+      if !employee.hire_date.blank?
+        if Date.today >= (employee.hire_date + 6.month)
+          employee
+        end
       end
     end
   end
