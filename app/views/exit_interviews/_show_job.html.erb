@@ -1,0 +1,49 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingJob">
+			<h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseJob" aria-expanded="false" aria-controls="collapseJob">The Job<span class="pull-right">+</span></a></h4>
+		</div>
+		<div id="collapseJob" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingJob">
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Question</th>
+							<th>Response</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Job was challenging</td>
+							<td><%= @exit_interview.job_challenge %></td>
+						</tr>
+						<tr>
+							<td>There were sufficient opportunities for advancement</td>
+							<td><%= @exit_interview.opportunities %></td>
+						</tr>
+						<tr>
+							<td>Workload was manageable</td>
+							<td><%= @exit_interview.workload %></td>
+						</tr>
+						<tr>
+							<td>Sufficient resources and staff were available</td>
+							<td><%= @exit_interview.resources %></td>
+						</tr>
+						<tr>
+							<td>Your colleagues listened and appreciated your suggestions</td>
+							<td><%= @exit_interview.colleagues %></td>
+						</tr>
+						<tr>
+							<td>Your skills were effectively used</td>
+							<td><%= @exit_interview.skills %></td>
+						</tr>
+						<tr>
+							<td>You had access to adequate training and development programs</td>
+							<td><%= @exit_interview.training %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

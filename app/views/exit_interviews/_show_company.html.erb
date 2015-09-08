@@ -1,0 +1,57 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingComp">
+			<h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseComp" aria-expanded="false" aria-controls="collapseComp">The Company<span class="pull-right">+</span></a></h4>
+		</div>
+		<div id="collapseComp" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingComp">
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Question</th>
+							<th>Response</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>When you started, did the orientation help and was it accurate?</td>
+							<td><%= @exit_interview.orientation %></td>
+						</tr>
+						<tr>
+							<td>Was it a good and positive environment to work in?</td>
+							<td><%= @exit_interview.positive_environment %></td>
+						</tr>
+						<tr>
+							<td>Had adequate equipment to do the work?</td>
+							<td><%= @exit_interview.adequate_equipment %></td>
+						</tr>
+						<tr>
+							<td>Got on well with other staff within the company?</td>
+							<td><%= @exit_interview.get_on %></td>
+						</tr>
+						<tr>
+							<td>There were sufficient staff to cover the work?</td>
+							<td><%= @exit_interview.sufficient_staff %></td>
+						</tr>
+						<tr>
+							<td>The company was efficient in its dealings?</td>
+							<td><%= @exit_interview.efficient_company %></td>
+						</tr>
+						<tr>
+							<td>Internal communication worked well?</td>
+							<td><%= @exit_interview.internal_communication %></td>
+						</tr>
+						<tr>
+							<td>There was no bullying or harassment?</td>
+							<td><%= @exit_interview.no_bullying %></td>
+						</tr>
+						<tr>
+							<td>The business did not discriminate against any employee?</td>
+							<td><%= @exit_interview.discrimination %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingMgt">
+			<h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseMgt" aria-expanded="false" aria-controls="collapseMgt">Management<span class="pull-right">+</span></a></h4>
+		</div>
+		<div id="collapseMgt" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMgt">
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Question</th>
+							<th>Response</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Gave fair and equal treatment?</td>
+							<td><%= @exit_interview.equal_treatment %></td>
+						</tr>
+						<tr>
+							<td>Was available to discuss job related issues?</td>
+							<td><%= @exit_interview.discuss_issues %></td>
+						</tr>
+						<tr>
+							<td>Encouraged feedback and suggestions?</td>
+							<td><%= @exit_interview.encourage_feedback %></td>
+						</tr>
+						<tr>
+							<td>Maintained consistent policies and practices?</td>
+							<td><%= @exit_interview.consistent_policies %></td>
+						</tr>
+						<tr>
+							<td>Provided recognition for achievements?</td>
+							<td><%= @exit_interview.provide_recognition %></td>
+						</tr>
+						<tr>
+							<td>Gave opportunities to develop?</td>
+							<td><%= @exit_interview.gave_development_opportunities %></td>
+						</tr>
+						<tr>
+							<td>Provided constructive feedback?</td>
+							<td><%= @exit_interview.gave_feedback %></td>
+						</tr>
+						<tr>
+							<td>Clearly communicated decisions and how they would effect your work?</td>
+							<td><%= @exit_interview.clear_decision %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

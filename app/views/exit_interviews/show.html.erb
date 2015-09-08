@@ -1,4 +1,64 @@
-
+  <hr>
+  <h3 class="help-block"><em>What are the reasons for leaving?</em></h3>
+  <br>
+  <h5>Select one or more:</h5>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>
+          <%= check_box "@exit_interview", "higher_pay", {checked: @exit_interview.higher_pay, disabled: true} %> Higher pay
+        </td>
+        <td>
+          <%= check_box "@exit_interview", "better_benefits", {checked: @exit_interview.better_benefits, disabled: true} %> Better Benefits
+        </td>
+        <td>
+          <%= check_box "@exit_interview", 'better_career', {checked: @exit_interview.better_career, disabled: true} %> Better career opportunity
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box "@exit_interview", "life_balance", {checked: @exit_interview.life_balance, disabled: true} %> Improved work life balance
+        </td>
+        <td>
+          <%= check_box "@exit_interview", "career_change", {checked: @exit_interview.career_change, disabled: true} %> Career change
+        </td>
+        <td>
+          <%= check_box "@exit_interview", "closer", {checked: @exit_interview.closer, disabled: true} %> Closer to home
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= check_box "@exit_interview", "employee_conflict", {checked: @exit_interview.employee_conflict, disabled: true} %> Conflict with other employees
+        </td>
+        <td>
+          <%= check_box "@exit_interview", "manager_conflict", {checked: @exit_interview.manager_conflict, disabled: true} %> Conflict with managers
+        </td>
+        <td>
+          <%= check_box "@exit_interview", "family", {checked: @exit_interview.family, disabled: true} %> Family and/or personal reasons
+        </td>
+        <tr>
+          <td>
+            <%= check_box "@exit_interview", "company_instability", {checked: @exit_interview.company_instability, disabled: true} %> Company instability
+          </td>
+          <td>
+            <%= check_box "@exit_interview", "other", {checked: @exit_interview.other, disabled: true} %> Other
+          </td>
+        </tr>
+      </tr>
+    </tbody>
+  </table>
+  <div class="form-group">
+  	<% if !@exit_interview.comment.blank? %>
+    <%= label :comment, "Other Reasons" %> <br>
+    <%= simple_format(@exit_interview.comment) %>
+    <% end %>
+  </div>
+  <%= render 'show_job' %>
+  <%= render 'show_remuneration' %>
+  <%= render 'show_company' %>
+  <%= render 'show_line_manager' %>
+  <%= render 'show_management' %>
+<hr>
 <p>
   <strong>Note:</strong>
   <%= @exit_interview.note %>

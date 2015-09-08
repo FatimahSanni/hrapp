@@ -19,7 +19,7 @@ class Staff < ActiveRecord::Base
 
 
 	def confirmation_status
-		if Date.today >= (self.hire_date + 6.month)
+		if Date.today >= (self.hire_date + 6.month) && self.confirmed == false
 			self.name
 		end
 	end

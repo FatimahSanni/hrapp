@@ -1,0 +1,57 @@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	<div class="panel panel-primary">
+		<div class="panel-heading" role="tab" id="headingSup">
+			<h4 class="panel-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSup" aria-expanded="false" aria-controls="collapseSup">Supervisor/Line Manager<span class="pull-right">+</span></a></h4>
+		</div>
+		<div id="collapseSup" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSup">
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Question</th>
+							<th>Response</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Had sufficient knowledge of the job?</th>
+							<th><%= @exit_interview.sufficient_knowledge %></th>
+						</tr>
+						<tr>
+							<td>Is experienced in supervision?</td>
+							<td><%= @exit_interview.experience %></td>
+						</tr>
+						<tr>
+							<td>Was open to suggestions?</td>
+							<td><%= @exit_interview.open %></td>
+						</tr>
+						<tr>
+							<td>Recognised and acknowledged achievements?</td>
+							<td><%= @exit_interview.acknowledge_achievements %></td>
+						</tr>
+						<tr>
+							<td>Acknowledged employees contributions?</td>
+							<td><%= @exit_interview.recognise_contributions %></td>
+						</tr>
+						<tr>
+							<td>Offered and promoted ways to develop?</td>
+							<td><%= @exit_interview.promote_development %></td>
+						</tr>
+						<tr>
+							<td>Provided constructive feedback?</td>
+							<td><%= @exit_interview.constructive_feedback %></td>
+						</tr>
+						<tr>
+							<td>Clearly communicated management decisions and how they would effect your work?</td>
+							<td><%= @exit_interview.clear_communication %></td>
+						</tr>
+						<tr>
+							<td>Maintained a professional relationship with you</td>
+							<td><%= @exit_interview.professional_relationship %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
