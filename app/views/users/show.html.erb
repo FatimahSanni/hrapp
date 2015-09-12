@@ -1,14 +1,21 @@
 <p>
-  <%= @user.role %>
+	<strong>Role:</strong>
+	<% if @user.roles.exists? %>
+		<% @user.roles.each do |r| %>
+		<%= r.name %>
+		<% end %>
+	<% else %>
+		<%= "Ordinary User" %>
+	<% end %>
 </p>
 <p>
-  <strong>Username:</strong>
-  <%= @user.username %>
+	<strong>Username:</strong>
+	<%= @user.username %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+	<strong>Email:</strong>
+	<%= @user.email %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

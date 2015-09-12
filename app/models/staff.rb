@@ -1,4 +1,5 @@
 class Staff < ActiveRecord::Base
+	resourcify
 	after_create :create_user_account
 	# validates :name, :address, :mobile, :emergency_name, :gender, :marital_status, :emergency_phone, presence: true
 	Gender = %w(Male Female)

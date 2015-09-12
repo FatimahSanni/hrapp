@@ -1,7 +1,9 @@
 
 <br>
 <br>
+<% if policy(@staff).create? %>
 <span class="pull-right"><%= link_to 'New Staff', new_staff_path, class: "btn btn-primary" %></span>
+<% end %>
 <h1>Listing Staff</h1>
 <hr>
 <%= paginate @staff %>
@@ -31,9 +33,11 @@
         <td><%= l staff.created_at, format: :default %></td>
         <td><%= staff.emergency_name %></td>
         <td><%= staff.emergency_address %></td>
+        <% if (current_user.has_role?(:admin)) or (current_user == staff.user) %>
         <td><%= link_to 'Show', staff %></td>
         <td><%= link_to 'Edit', edit_staff_path(staff) %></td>
         <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

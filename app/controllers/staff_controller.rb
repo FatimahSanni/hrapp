@@ -1,6 +1,6 @@
 class StaffController < ApplicationController
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
-  # before_action :profile_owner!, only: [:edit, :update, :destroy]
+  before_action :profile_owner!, only: [:show, :edit, :update, :destroy]
 
   # GET /staff
   # GET /staff.json
@@ -21,7 +21,6 @@ class StaffController < ApplicationController
 
   # GET /staff/1/edit
   def edit
-    authorize @staff
   end
 
   # POST /staff
@@ -29,7 +28,7 @@ class StaffController < ApplicationController
   def create
 
     @staff = Staff.new(staff_params)
-
+    authorize @staff
     respond_to do |format|
       if @staff.save
         UserMailer.welcome_email(@staff.user).deliver_now
@@ -60,7 +59,6 @@ class StaffController < ApplicationController
   # DELETE /staff/1
   # DELETE /staff/1.json
   def destroy
-    authorize @staff
     @staff.destroy
     respond_to do |format|
       format.html { redirect_to staff_index_url, notice: 'Staff was successfully destroyed.' }
@@ -74,7 +72,7 @@ class StaffController < ApplicationController
 
   def profile_owner!
     authenticate_user!
-    if @staff.user_id != current_user.id
+    if !(@staff.user_id == current_user.id) and !(current_user.has_role? :admin)
       redirect_to staff_index_path
       flash[:alert] = "You do not have enough permissions to do this"
     end

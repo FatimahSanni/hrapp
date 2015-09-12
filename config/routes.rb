@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
 
-  resources :roles
-
   resources :exit_interviews
 
   resources :leave_rules
@@ -76,7 +74,12 @@ Rails.application.routes.draw do
 
   resources :staff
 
-  root 'pages#dashboard'
+  authenticated :user, ->(u) { u.has_role? :admin } do
+    root 'pages#dashboard', as: :admin_root
+  end
+
+  root "staff#index"
+
   mount Forem::Engine, :at => '/forums'
 
 end
