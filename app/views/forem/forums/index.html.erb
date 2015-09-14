@@ -1,4 +1,9 @@
 
+<header id='admin_link'>
+  <% if forem_admin? %>
+    <%= link_to t("area", :scope => "forem.admin"), forem.admin_root_path %>
+  <% end %>
+</header>
 <div id='forums_container'>
   <h1 id='forums_title'><%= t('.title') %></h1>
 
@@ -6,8 +11,4 @@
 </div>
 
 <br>
-<footer id='admin_link'>
-  <% if forem_admin? %>
-    <%= link_to t("area", :scope => "forem.admin"), forem.admin_root_path %>
-  <% end %>
-</footer>
+
