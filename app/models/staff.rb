@@ -27,8 +27,7 @@ class Staff < ActiveRecord::Base
 
 	def create_user_account
 		data = self.email
-		role = 1
-		u = User.create(username: data, email: data, password: data, password_confirmation: data, role_id: role)
+		u = User.create(username: data, email: data, password: data, password_confirmation: data)
 		update_attribute(:user_id, u.id)
 	end
 
