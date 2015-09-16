@@ -1,7 +1,5 @@
 <h3><%= pluralize(@comments.count, 'Comment') %> for <%= @announcement.topic %></h3>
 
-<%= @comments.arrange(order: :created_at) %>
-
 <table class="table">
   <thead>
     <tr>

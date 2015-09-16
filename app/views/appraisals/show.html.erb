@@ -1,74 +1,120 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <p><strong>Staff: </strong><%= @appraisal.staff_name %></p>
+  <p><strong>From: </strong><%= @appraisal.from %></p>
+  <p><strong>To: </strong><%= @appraisal.to %></p>
+  <p><strong>Type: </strong><%= @appraisal.appraisal_type %></p>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <h4>Line Manager 1:</h4>
+    <h3>
+      <strong>Overall:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.total %>></span>
+      <i><%= @appraisal.total %></i>
+    </h3>
+    <br>
+    <p>
+      <strong>Job knowledge:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.job_knowledge %>></span>
+    </p>
 
-<p>
-  <strong>Staff:</strong>
-  <%= @appraisal.staff_name %>
-</p>
+    <p>
+      <strong>Quality of work:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.quality_of_work %>></span>
+    </p>
 
-<p>
-  <strong>From:</strong>
-  <%= @appraisal.from %>
-</p>
+    <p>
+      <strong>Productivity:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.productivity %>></span>
+    </p>
 
-<p>
-  <strong>To:</strong>
-  <%= @appraisal.to %>
-</p>
+    <p>
+      <strong>Dependability:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.dependability %>></span>
+    </p>
 
-<p>
-  <strong>Appraisal type:</strong>
-  <%= @appraisal.appraisal_type %>
-</p>
+    <p>
+      <strong>Attendance:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.attendance %>></span>
+    </p>
 
-<p>
-  <strong>Job knowledge:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.job_knowledge %>></span>
-</p>
+    <p>
+      <strong>Relation with others:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.relation_with_others %>></span>
+    </p>
 
-<p>
-  <strong>Quality of work:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.quality_of_work %>></span>
-</p>
+    <p>
+      <strong>Commitment with safety:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.commitment_with_safety %>></span>
+    </p>
 
-<p>
-  <strong>Productivity:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.productivity %>></span>
-</p>
+    <p>
+      <strong>Supervisory ability:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.supervisory_ability %>></span>
+    </p>
 
-<p>
-  <strong>Dependability:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.dependability %>></span>
-</p>
+    <p>
+      <strong>Comment:</strong>
+      <%= simple_format(@appraisal.comment) %>
+    </p>
+  </div>
+  <div class="col-md-6">
+    <h4>Line Manager 2:</h4>
+    <h3>
+      <strong>Overall:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.total2 %>></span>
+      <i><%= @appraisal.total2 %></i>
+    </h3>
+    <br>
+    <p>
+      <strong>Job knowledge:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.job2 %>></span>
+    </p>
 
-<p>
-  <strong>Attendance:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.attendance %>></span>
-</p>
+    <p>
+      <strong>Quality of work:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.work2 %>></span>
+    </p>
 
-<p>
-  <strong>Relation with others:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.relation_with_others %>></span>
-</p>
+    <p>
+      <strong>Productivity:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.productivity2 %>></span>
+    </p>
 
-<p>
-  <strong>Commitment with safety:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.commitment_with_safety %>></span>
-</p>
+    <p>
+      <strong>Dependability:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.dependability2 %>></span>
+    </p>
 
-<p>
-  <strong>Supervisory ability:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.supervisory_ability %>></span>
-</p>
+    <p>
+      <strong>Attendance:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.attendance2 %>></span>
+    </p>
 
-<p>
-  <strong>Overall:</strong>
-  <span class="star-rating", data-score=<%= @appraisal.total %>></span>
-</p>
+    <p>
+      <strong>Relation with others:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.relation2 %>></span>
+    </p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= simple_format(@appraisal.comment) %>
-</p>
+    <p>
+      <strong>Commitment with safety:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.safety2 %>></span>
+    </p>
+
+    <p>
+      <strong>Supervisory ability:</strong>
+      <span class="star-rating", data-score=<%= @appraisal.supervisory2 %>></span>
+    </p>
+
+
+    <p>
+      <strong>Comment:</strong>
+      <%= simple_format(@appraisal.comment2) %>
+    </p>
+
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_appraisal_path(@appraisal) %> |
 <%= link_to 'Back', appraisals_path %>

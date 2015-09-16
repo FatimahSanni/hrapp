@@ -19,6 +19,19 @@ class Appraisal < ActiveRecord::Base
   	c = commitment_with_safety
   	s = self.supervisory_ability
   	values = [j, q, p, d, a, r,c, s]
-  	return values.sum/values.size.to_f
+  	return (values.sum)/(values.size.to_f)
+  end
+
+  def total2
+    j2 = self.job2
+    q2 = self.work2
+    p2 = self.productivity2
+    d2 = self.dependability2
+    a2 = self.attendance2
+    r2 = self.relation2
+    c2 = safety2
+    s2 = self.supervisory2
+    values = [j2, q2, p2, d2, a2, r2,c2, s2]
+    return (values.sum)/(values.size.to_f)
   end
 end

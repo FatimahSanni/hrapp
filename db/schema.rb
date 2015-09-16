@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910124920) do
+ActiveRecord::Schema.define(version: 20150916093620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20150910124920) do
     t.text     "comment"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "job2"
+    t.integer  "work2"
+    t.integer  "productivity2"
+    t.integer  "dependability2"
+    t.integer  "attendance2"
+    t.integer  "relation2"
+    t.integer  "comment2"
+    t.integer  "safety2"
+    t.integer  "supervisory2"
+    t.text     "staff_comment"
   end
 
   add_index "appraisals", ["staff_id"], name: "index_appraisals_on_staff_id", using: :btree
@@ -465,6 +475,8 @@ ActiveRecord::Schema.define(version: 20150910124920) do
     t.integer  "user_id"
     t.date     "hire_date"
     t.boolean  "confirmed",           default: false, null: false
+    t.string   "line_manager1"
+    t.string   "line_manager2"
   end
 
   add_index "staff", ["user_id"], name: "index_staff_on_user_id", using: :btree

@@ -25,42 +25,62 @@
     <%= f.label :appraisal_type %>
     <%= f.text_field :appraisal_type, class: "form-control" %>
   </div>
-  <div class="form-group">
-    <%= f.label :job_knowledge %>
-    <span id="job", data-score=<%=@appraisal.job_knowledge %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :quality_of_work %>
-    <span id="work", data-score=<%=@appraisal.quality_of_work %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :productivity %>
-    <span id="pro", data-score=<%=@appraisal.productivity %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :dependability %>
-    <span id="dep", data-score=<%=@appraisal.dependability %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :attendance %>
-   <span id="att", data-score=<%=@appraisal.attendance %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :relation_with_others %>
-    <span id="rel", data-score=<%=@appraisal.relation_with_others %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :commitment_with_safety %>
-    <span id="com", data-score=<%=@appraisal.commitment_with_safety %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :supervisory_ability %>
-    <span id="sup", data-score=<%=@appraisal.supervisory_ability %>></span>
-  </div>
-  <div class="form-group">
-    <%= f.label :comment %>
-    <%= f.text_area :comment, class: "form-control", rows: 10 %>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Line Manager 1</th>
+        <th>Line Manager 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Job Knowlegde</td>
+        <td><span id="job", data-score=<%=@appraisal.job_knowledge %>></span></td>
+        <td><span id="job2", data-score=<%=@appraisal.job2 %>></span></td>
+      </tr>
+      <tr>
+        <td>Quality of Work</td>
+        <td><span id="work", data-score=<%=@appraisal.quality_of_work %>></span></td>
+        <td><span id="work2", data-score=<%=@appraisal.work2 %>></span></td>
+      </tr>
+      <tr>
+        <td>Productivity</td>
+        <td><span id="pro", data-score=<%=@appraisal.productivity %>></span></td>
+        <td><span id="pro2", data-score=<%=@appraisal.productivity2 %>></span></td>
+      </tr>
+      <tr>
+        <td>Dependability</td>
+        <td><span id="dep", data-score=<%=@appraisal.dependability %>></span></td>
+        <td><span id="dep2", data-score=<%=@appraisal.dependability2 %>></span></td>
+      </tr>
+      <tr>
+        <td>Attendance</td>
+        <td><span id="att", data-score=<%=@appraisal.attendance %>></span></td>
+        <td><span id="att2", data-score=<%=@appraisal.attendance2 %>></span></td>
+      </tr>
+      <tr>
+        <td>Relation with others</td>
+        <td><span id="rel", data-score=<%=@appraisal.relation_with_others %>></span></td>
+        <td><span id="rel2", data-score=<%=@appraisal.relation2 %>></span></td>
+      </tr>
+      <tr>
+        <td>Commitment to safety</td>
+        <td><span id="com", data-score=<%=@appraisal.commitment_with_safety %>></span></td>
+        <td><span id="com2", data-score=<%=@appraisal.safety2 %>></span></td>
+      </tr>
+      <tr>
+        <td>Supervisory Ability</td>
+        <td><span id="sup", data-score=<%=@appraisal.supervisory_ability %>></span></td>
+        <td><span id="sup2", data-score=<%=@appraisal.supervisory2 %>></span></td>
+      </tr>
+      <tr>
+        <td>Comment</td>
+        <td><%= f.text_area :comment, class: "form-control", rows: 7 %></td>
+        <td><%= f.text_area :comment2, class: "form-control", rows: 7 %></td>
+      </tr>
+    </tbody>
+  </table>
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
@@ -77,12 +97,34 @@
           return $(this).attr('data-score');
         } 
   });
+      $('#job2').raty({
+      starOn: '<%= image_path('star-on.png') %>',
+      starOff: '<%= image_path('star-off.png') %>',
+      starHalf: '<%= image_path('star-half.png') %>',
+      path: '',
+      scoreName: 'appraisal[job2]',
+      space: true,
+      score: function(){
+            return $(this).attr('data-score');
+          } 
+    });
   $('#work').raty({
     starOn: '<%= image_path('star-on.png') %>',
     starOff: '<%= image_path('star-off.png') %>',
     starHalf: '<%= image_path('star-half.png') %>',
     path: '',
     scoreName: 'appraisal[quality_of_work]',
+    space: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
+  $('#work2').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[work2]',
     space: true,
     score: function(){
           return $(this).attr('data-score');
@@ -99,12 +141,34 @@ $('#pro').raty({
           return $(this).attr('data-score');
         } 
   });
+$('#pro2').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[productivity2]',
+    space: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
 $('#dep').raty({
     starOn: '<%= image_path('star-on.png') %>',
     starOff: '<%= image_path('star-off.png') %>',
     starHalf: '<%= image_path('star-half.png') %>',
     path: '',
     scoreName: 'appraisal[dependability]',
+    space: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
+$('#dep2').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[dependability2]',
     space: true,
     score: function(){
           return $(this).attr('data-score');
@@ -121,12 +185,34 @@ $('#att').raty({
           return $(this).attr('data-score');
         } 
   });
+$('#att2').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[attendance2]',
+    space: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
 $('#rel').raty({
     starOn: '<%= image_path('star-on.png') %>',
     starOff: '<%= image_path('star-off.png') %>',
     starHalf: '<%= image_path('star-half.png') %>',
     path: '',
     scoreName: 'appraisal[relation_with_others]',
+    space: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
+$('#rel2').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[relation2]',
     space: true,
     score: function(){
           return $(this).attr('data-score');
@@ -143,12 +229,34 @@ $('#com').raty({
           return $(this).attr('data-score');
         } 
   });
+$('#com2').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[safety2]',
+    space: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
 $('#sup').raty({
     starOn: '<%= image_path('star-on.png') %>',
     starOff: '<%= image_path('star-off.png') %>',
     starHalf: '<%= image_path('star-half.png') %>',
     path: '',
     scoreName: 'appraisal[supervisory_ability]',
+    space: true,
+    score: function(){
+          return $(this).attr('data-score');
+        } 
+  });
+$('#sup2').raty({
+    starOn: '<%= image_path('star-on.png') %>',
+    starOff: '<%= image_path('star-off.png') %>',
+    starHalf: '<%= image_path('star-half.png') %>',
+    path: '',
+    scoreName: 'appraisal[supervisory2]',
     space: true,
     score: function(){
           return $(this).attr('data-score');

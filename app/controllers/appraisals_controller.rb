@@ -69,6 +69,6 @@ class AppraisalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appraisal_params
-      params.require(:appraisal).permit(:staff_id, :staff_name, :from, :to, :appraisal_type, :job_knowledge, :quality_of_work, :productivity, :dependability, :attendance, :relation_with_others, :commitment_with_safety, :supervisory_ability, :comment)
+      params.require(:appraisal).permit(:staff_comment, :staff_id, :staff_name, :from, :to, :appraisal_type, :job_knowledge, :quality_of_work, :productivity, :dependability, :attendance, :relation_with_others, :commitment_with_safety, :supervisory_ability, :comment, :job2, :work2, :productivity2, :dependability2, :attendance2, :relation2, :safety2, :supervisory2, :overall2, :comment2)
     end
 end
